@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Keshi.Entity;
+using Keshi.Modules;
+using System;
 
 namespace Kaeshi
 {
@@ -9,13 +11,12 @@ namespace Kaeshi
             var seed = 1010;
             Console.WriteLine("Your character:");
             var rnd = new Random(seed);
-            var strength = rnd.Next(1, 6);
-            var dexterity = rnd.Next(1, 6);
-            var life = strength * 10;
 
-            Console.WriteLine("Strength: {0}", strength);
-            Console.WriteLine("Dexterity: {0}", dexterity);
-            Console.WriteLine("Life: {0}", life);
+            Character hero = CharacterFactory.Generate(rnd);
+
+            Console.WriteLine("Strength: {0}", hero.Strength);
+            Console.WriteLine("Dexterity: {0}", hero.Dexterity);
+            Console.WriteLine("Life: {0}", hero.Life);
         }
     }
 }
