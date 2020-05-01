@@ -17,6 +17,14 @@ namespace Kaeshi
             Console.WriteLine("Strength: {0}", hero.Strength);
             Console.WriteLine("Dexterity: {0}", hero.Dexterity);
             Console.WriteLine("Life: {0}", hero.Life);
+
+            var game = true;
+            while(game)
+            {
+                var rawCommand = Console.ReadLine();
+                var command = CommandParser.Parse(rawCommand);
+                game = command.Execute();
+            }
         }
     }
 }
