@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Keshi.Entity;
 
 namespace Keshi.Commands
 {
     interface ICommand
     {
-        public bool Execute();
+        public GameState Execute();
     }
 }
