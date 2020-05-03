@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Keshi.Entity;
+using System;
 
 namespace Keshi.Commands
 {
     public class NotFoundCommand : ICommand
     {
-        public bool Execute()
+        public GameState Execute()
         {
             Console.WriteLine("No command");
-            return true;
+            return GameState.Play;
         }
     }
 }

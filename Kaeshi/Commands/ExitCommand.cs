@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Keshi.Entity;
+using System;
 
 namespace Keshi.Commands
 {
     class ExitCommand : ICommand
     {
-        public bool Execute()
+        public GameState Execute()
         {
             Console.WriteLine("Will exit");
-            return false;
+            return GameState.Exit;
         }
     }
 }
