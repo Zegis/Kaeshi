@@ -22,7 +22,7 @@ namespace Kaeshi
             while(game == GameState.Play)
             {
                 var rawCommand = Console.ReadLine();
-                var command = CommandParser.Parse(rawCommand);
+                var command = CommandParser.Parse(rawCommand, hero);
                 game = command.Execute();
             }
         }

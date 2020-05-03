@@ -1,23 +1,21 @@
 ﻿using Keshi.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Keshi.Entity;
 
 namespace Keshi.Modules
 {
     class CommandParser
     {
-        public static ICommand Parse(string rawCommand)
+        public static ICommand Parse(string rawCommand, Character hero)
         {
             if (string.IsNullOrEmpty(rawCommand))
                 return new NotFoundCommand();
 
             switch(rawCommand)
             {
+                case "look": return new LookCommand(hero);
                 case "exit": return new ExitCommand();
+                default: return new NotFoundCommand();
             }
-
-            return new NotFoundCommand();
         }
     }
 }
