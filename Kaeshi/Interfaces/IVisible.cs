@@ -1,6 +1,6 @@
 ﻿namespace Keshi.Interfaces
 {
-    interface IVisible
+    public interface IVisible
     {
         public string Observe();
     }

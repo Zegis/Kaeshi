@@ -3,7 +3,7 @@ using System;
 
 namespace Keshi.Commands
 {
-    class ExitCommand : ICommand
+    public class ExitCommand : ICommand
     {
         public GameState Execute()
         {

@@ -18,11 +18,13 @@ namespace Kaeshi
             Console.WriteLine("Dexterity: {0}", hero.Dexterity);
             Console.WriteLine("Life: {0}", hero.Life);
 
+            CommandParser.visibleObjects.Add("hero", hero);
+
             var game = GameState.Play;
             while(game == GameState.Play)
             {
                 var rawCommand = Console.ReadLine();
-                var command = CommandParser.Parse(rawCommand, hero);
+                var command = CommandParser.Parse(rawCommand);
                 game = command.Execute();
             }
         }

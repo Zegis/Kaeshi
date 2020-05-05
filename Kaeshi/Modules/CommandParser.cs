@@ -1,18 +1,23 @@
 ﻿using Keshi.Commands;
-using Keshi.Entity;
+using Keshi.Interfaces;
+using System.Collections.Generic;
 
 namespace Keshi.Modules
 {
-    class CommandParser
+    public class CommandParser
     {
-        public static ICommand Parse(string rawCommand, Character hero)
+        public static Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
+
+        public static ICommand Parse(string rawCommand)
         {
             if (string.IsNullOrEmpty(rawCommand))
                 return new NotFoundCommand();
 
+            string target = "hero";
+
             switch(rawCommand)
             {
-                case "look": return new LookCommand(hero);
+                case "look": return new LookCommand(visibleObjects[target]);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
