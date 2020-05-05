@@ -2,7 +2,7 @@
 
 namespace Keshi.Commands
 {
-    interface ICommand
+    public interface ICommand
     {
         public GameState Execute();
     }

@@ -4,7 +4,7 @@ using System;
 
 namespace Keshi.Commands
 {
-    class LookCommand : ICommand
+    public class LookCommand : ICommand
     {
         private IVisible _visible;
 
