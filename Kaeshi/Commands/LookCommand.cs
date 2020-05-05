@@ -15,7 +15,8 @@ namespace Keshi.Commands
 
         public GameState Execute()
         {
-            Console.Write(_visible.Observe());
+            var description = _visible != null ? _visible.Observe() : "nothing to look at";
+            Console.Write(description);
 
             return GameState.Play;
         }
