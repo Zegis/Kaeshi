@@ -13,11 +13,17 @@ namespace Keshi.Modules
             if (string.IsNullOrEmpty(rawCommand))
                 return new NotFoundCommand();
 
-            string target = "hero";
+            rawCommand = rawCommand.Trim();
+            var commandPieces = rawCommand.Split(' ');
 
-            switch(rawCommand)
+            if(commandPieces.Length == 0 || commandPieces.Length > 2)
+                return new NotFoundCommand();
+
+            switch(commandPieces[0])
             {
-                case "look": return new LookCommand(visibleObjects[target]);
+                case "look":
+                    visibleObjects.TryGetValue(commandPieces[1],out var target);
+                    return new LookCommand(target);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
