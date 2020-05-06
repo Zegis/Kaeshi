@@ -1,14 +1,17 @@
 ﻿using Keshi.Commands;
-using Keshi.Interfaces;
-using System.Collections.Generic;
-
+using System;
 namespace Keshi.Modules
 {
     public class CommandParser
     {
-        public static Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
+        private readonly EntityManager entityManager;
 
-        public static ICommand Parse(string rawCommand)
+        public CommandParser(EntityManager manager)
+        {
+            entityManager = manager;
+        }
+
+        public ICommand Parse(string rawCommand)
         {
             if (string.IsNullOrEmpty(rawCommand))
                 return new NotFoundCommand();
@@ -19,10 +22,17 @@ namespace Keshi.Modules
             if(commandPieces.Length == 0 || commandPieces.Length > 2)
                 return new NotFoundCommand();
 
+            string rawTarget = String.Empty;
+
+            if(commandPieces.Length > 1)
+            {
+                rawTarget = commandPieces[1];
+            }
+
             switch(commandPieces[0])
             {
                 case "look":
-                    visibleObjects.TryGetValue(commandPieces[1],out var target);
+                    var target = entityManager.GetVisibleObject(rawTarget);
                     return new LookCommand(target);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
