@@ -18,11 +18,11 @@ namespace Kaeshi
             Console.WriteLine("Dexterity: {0}", hero.Dexterity);
             Console.WriteLine("Life: {0}", hero.Life);
 
-            Location current = new Location();
+            var map = new Map();
 
             var entityManager = new EntityManager();
             entityManager.AddVisibleObject("yourself", hero);
-            entityManager.AddVisibleObject("around", current);
+            entityManager.AddVisibleObject("around", map.GetCurrentLocation());
 
             var commandParser = new CommandParser(entityManager);
 
