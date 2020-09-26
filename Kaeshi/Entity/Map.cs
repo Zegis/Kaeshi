@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Keshi.Entity
 {
-    class Map
+    public class Map
     {
         private readonly Dictionary<string, Location> locations;
         private Location current;
