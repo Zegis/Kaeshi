@@ -18,8 +18,10 @@ namespace Keshi.Entity
         {
             var locations = new Dictionary<string, Location>();
             locations.Add("root", new Location());
+            locations.Add("north1", new Location());
 
             current = locations["root"];
+            current.SetLink(Direction.North, locations["north1"]);
 
             return locations;
         }
@@ -27,6 +29,13 @@ namespace Keshi.Entity
         public Location GetCurrentLocation()
         {
             return current;
+        }
+
+        public void Go(Direction direction)
+        {
+            var newLocation = current.GetLink(direction);
+            if (newLocation != null)
+                current = newLocation;
         }
     }
 }
