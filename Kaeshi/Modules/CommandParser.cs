@@ -1,4 +1,5 @@
 ﻿using Keshi.Commands;
+using Keshi.Entity;
 using System;
 namespace Keshi.Modules
 {
@@ -34,6 +35,13 @@ namespace Keshi.Modules
                 case "look":
                     var target = entityManager.GetVisibleObject(rawTarget);
                     return new LookCommand(target);
+                case "north":
+                case "east":
+                case "south":
+                case "west":
+                    var map = entityManager.GetMap();
+                    var moveDirection = (Direction) Enum.Parse(typeof(Direction), commandPieces[0], true);
+                    return new GoCommand(map, moveDirection);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
