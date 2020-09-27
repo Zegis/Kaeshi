@@ -18,6 +18,10 @@ namespace Keshi.Modules
 
         public IVisible GetVisibleObject(string key)
         {
+            if("around".Equals(key))
+            {
+                level.GetCurrentLocation();
+            }
             if (visibleObjects.TryGetValue(key, out var retVal))
                 return retVal;
 
