@@ -22,7 +22,6 @@ namespace Kaeshi
 
             var entityManager = new EntityManager();
             entityManager.AddVisibleObject("yourself", hero);
-            entityManager.AddVisibleObject("around", map.GetCurrentLocation());
 
             var commandParser = new CommandParser(entityManager);
 
