@@ -20,7 +20,7 @@ namespace Keshi.Modules
         {
             if("around".Equals(key))
             {
-                level.GetCurrentLocation();
+                return level.GetCurrentLocation();
             }
             if (visibleObjects.TryGetValue(key, out var retVal))
                 return retVal;
@@ -31,6 +31,11 @@ namespace Keshi.Modules
         public Map GetMap()
         {
             return level;
+        }
+
+        public void SetMap(Map map)
+        {
+            level = map;
         }
     }
 }

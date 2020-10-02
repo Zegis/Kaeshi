@@ -22,6 +22,7 @@ namespace Kaeshi
 
             var entityManager = new EntityManager();
             entityManager.AddVisibleObject("yourself", hero);
+            entityManager.SetMap(map);
 
             var commandParser = new CommandParser(entityManager);
 
