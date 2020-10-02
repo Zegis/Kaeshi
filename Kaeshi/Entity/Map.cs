@@ -40,6 +40,11 @@ namespace Keshi.Entity
             {
                 current.visited = true;
                 current = newLocation;
+                Console.Write($"You wentured ventured {direction}");
+            }
+            else
+            {
+                Console.Write("Path is blocked...");
             }
         }
     }
