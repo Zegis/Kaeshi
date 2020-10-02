@@ -7,20 +7,28 @@ namespace Keshi.Entity
 {
     public class Location : IVisible
     {
-        private bool visited = true;
+        public bool visited;
 
-        private string primaryDescription = "1st visit! :O";
+        private string primaryDescription;
 
-        private string secondaryDescription = "So much changed since last visit!";
+        private string secondaryDescription;
 
         private Dictionary<Direction, Location> linkedLoctions = new Dictionary<Direction, Location>();
+
+        public Location(string firstDescription, string secondDescription)
+        {
+            primaryDescription = firstDescription;
+            secondaryDescription = secondDescription;
+            visited = false;
+        }
 
         public string Observe()
         {
             if (visited)
-                return primaryDescription;
-            else
                 return secondaryDescription;
+            else
+                return primaryDescription;
+            
         }
 
         public void SetLink(Direction direction, Location locationToLink)
@@ -30,7 +38,8 @@ namespace Keshi.Entity
 
         public Location GetLink(Direction direction)
         {
-            return linkedLoctions[direction];
+            linkedLoctions.TryGetValue(direction, out var retVal);
+            return retVal;
         }
     }
 }

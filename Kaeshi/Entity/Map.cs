@@ -17,11 +17,13 @@ namespace Keshi.Entity
         private Dictionary<string, Location> LoadLocations()
         {
             var locations = new Dictionary<string, Location>();
-            locations.Add("root", new Location());
-            locations.Add("north1", new Location());
+            locations.Add("root", new Location("You see a root.","Root is still there..."));
+            locations.Add("north1", new Location("This is north location","Is still on north"));
 
             current = locations["root"];
             current.SetLink(Direction.North, locations["north1"]);
+
+            locations["north1"].SetLink(Direction.South, locations["root"]);
 
             return locations;
         }
@@ -35,7 +37,10 @@ namespace Keshi.Entity
         {
             var newLocation = current.GetLink(direction);
             if (newLocation != null)
+            {
+                current.visited = true;
                 current = newLocation;
+            }
         }
     }
 }
