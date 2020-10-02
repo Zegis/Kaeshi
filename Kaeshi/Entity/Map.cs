@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Keshi.Modules;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,6 +25,7 @@ namespace Keshi.Entity
             current.SetLink(Direction.North, locations["north1"]);
 
             locations["north1"].SetLink(Direction.South, locations["root"]);
+            locations["north1"].AddNpc("MiB", CharacterFactory.Generate(new Random(1020)));
 
             return locations;
         }

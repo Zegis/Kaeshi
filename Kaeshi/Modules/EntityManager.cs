@@ -25,6 +25,10 @@ namespace Keshi.Modules
             if (visibleObjects.TryGetValue(key, out var retVal))
                 return retVal;
 
+            IVisible npc = level.GetCurrentLocation().ObserveNpc(key);
+            if (npc != null)
+                return npc;
+
             return null;
         }
 
