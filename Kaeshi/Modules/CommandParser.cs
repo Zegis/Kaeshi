@@ -42,6 +42,9 @@ namespace Keshi.Modules
                     var map = entityManager.GetMap();
                     var moveDirection = (Direction) Enum.Parse(typeof(Direction), commandPieces[0], true);
                     return new GoCommand(map, moveDirection);
+                case "attack":
+                    var npc = entityManager.GetTargetableObject(rawTarget);
+                    return new AttackCommand(npc);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
