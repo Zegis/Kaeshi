@@ -1,8 +1,6 @@
 ﻿using Keshi.Entity;
 using Keshi.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Keshi.Modules
 {
@@ -40,6 +38,15 @@ namespace Keshi.Modules
         public void SetMap(Map map)
         {
             level = map;
+        }
+
+        internal ITargetable GetTargetableObject(string rawTarget)
+        {
+            ITargetable npc = level.GetCurrentLocation().TargetNpc(rawTarget);
+            if (npc != null)
+                return npc;
+
+            return null;
         }
     }
 }

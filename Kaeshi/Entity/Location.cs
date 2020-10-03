@@ -42,6 +42,12 @@ namespace Keshi.Entity
             return retVar;
         }
 
+        public ITargetable TargetNpc(string NpcName)
+        {
+            npcs.TryGetValue(NpcName, out var retVal);
+            return retVal;
+        }
+
         public void AddNpc(string NpcName ,Character NpcToAdd)
         {
             npcs[NpcName] = NpcToAdd;
