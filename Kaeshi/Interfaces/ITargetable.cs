@@ -2,6 +2,7 @@
 {
     public interface ITargetable
     {
-        public void Attack();
+        bool isHit(int hitValue);
+        public void Attack(int damage);
     }
 }

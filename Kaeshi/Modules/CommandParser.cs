@@ -44,7 +44,7 @@ namespace Keshi.Modules
                     return new GoCommand(map, moveDirection);
                 case "attack":
                     var npc = entityManager.GetTargetableObject(rawTarget);
-                    return new AttackCommand(npc);
+                    return new AttackCommand(entityManager.GetHero(),npc);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
