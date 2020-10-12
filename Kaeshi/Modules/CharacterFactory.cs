@@ -8,12 +8,12 @@ namespace Keshi.Modules
 {
     public class CharacterFactory
     {
-        static public Character Generate(Random rnd)
+        static public Character Generate()
         {
             var ret = new Character
             {
-                Strength = rnd.Next(1, 6),
-                Dexterity = rnd.Next(1, 6)
+                Strength = Dice.Throw(),
+                Dexterity = Dice.Throw()
             };
             ret.Life = ret.Strength * 10;
 

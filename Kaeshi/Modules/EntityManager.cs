@@ -8,6 +8,7 @@ namespace Keshi.Modules
     {
         private  Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
         private Map level;
+        private Character hero;
 
         public void AddVisibleObject(string key, IVisible visibleObject)
         {
@@ -20,8 +21,8 @@ namespace Keshi.Modules
             {
                 return level.GetCurrentLocation();
             }
-            if (visibleObjects.TryGetValue(key, out var retVal))
-                return retVal;
+            if ("yourself".Equals(key))
+                return hero;
 
             IVisible npc = level.GetCurrentLocation().ObserveNpc(key);
             if (npc != null)
@@ -38,6 +39,16 @@ namespace Keshi.Modules
         public void SetMap(Map map)
         {
             level = map;
+        }
+
+        public void SetHero(Character hero)
+        {
+            this.hero = hero;
+        }
+
+        public Character GetHero()
+        {
+            return hero;
         }
 
         internal ITargetable GetTargetableObject(string rawTarget)

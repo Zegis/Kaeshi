@@ -8,11 +8,10 @@ namespace Kaeshi
     {
         static void Main(string[] args)
         {
-            var seed = 1010;
+            Dice.setSeed(1010);
             Console.WriteLine("Your character:");
-            var rnd = new Random(seed);
 
-            Character hero = CharacterFactory.Generate(rnd);
+            Character hero = CharacterFactory.Generate();
 
             Console.WriteLine("Strength: {0}", hero.Strength);
             Console.WriteLine("Dexterity: {0}", hero.Dexterity);
@@ -21,7 +20,7 @@ namespace Kaeshi
             var map = new Map();
 
             var entityManager = new EntityManager();
-            entityManager.AddVisibleObject("yourself", hero);
+            entityManager.SetHero(hero);
             entityManager.SetMap(map);
 
             var commandParser = new CommandParser(entityManager);
