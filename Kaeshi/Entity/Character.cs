@@ -9,14 +9,27 @@ namespace Keshi.Entity
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
-        public int Life { get; set; }
+        private int _life { get; set; }
+
+        private bool _isAlive { get; set; }
+
+        public Character(int strength, int dexterity, int maxLife)
+        {
+            Strength = strength;
+            Dexterity = dexterity;
+            _life = maxLife;
+            _isAlive = true;
+        }
 
         public void Attack(int damage)
         {
             Console.Write("Direct hit!");
-            Life -= damage;
-            if (Life == 0)
+            _life -= damage;
+            if (_life == 0)
+            {
                 Console.Write("Death");
+                _isAlive = false;
+            }
         }
 
         public int GetHitValue()
@@ -29,7 +42,7 @@ namespace Keshi.Entity
             return Strength;
         }
 
-        public bool isHit(int hitValue)
+        public bool IsHit(int hitValue)
         {
             
             var defence = Dice.Throw(Dexterity);
@@ -40,16 +53,21 @@ namespace Keshi.Entity
             return false;
         }
 
+        public bool IsAlive()
+        {
+            return _isAlive;
+        }
+
         public string Observe()
         {
             var description = new StringBuilder();
 
-            if (Life > 0)
+            if (_isAlive)
             {
 
                 description.AppendLine($"Strength: {this.Strength}");
                 description.AppendLine($"Dexterity: {this.Dexterity}");
-                description.AppendLine($"Life: {this.Life}");
+                description.AppendLine($"Life: {this._life}");
             }
             else
             {

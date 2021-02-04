@@ -2,8 +2,6 @@
 using Keshi.Interfaces;
 using Keshi.Modules;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Keshi.Commands
 {
@@ -27,8 +25,14 @@ namespace Keshi.Commands
                 return GameState.Play;
             }
 
+            if(!_target.IsAlive())
+            {
+                Console.Write("Target is dead");
+                return GameState.Play;
+            }
+
             var hitValue = Dice.Throw(_attacker.GetHitValue());
-            if (_target.isHit(hitValue))
+            if (_target.IsHit(hitValue))
             {
                 _target.Attack(_attacker.GetDamage());
             }
