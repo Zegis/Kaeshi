@@ -26,6 +26,7 @@ namespace Keshi.Entity
 
             locations["north1"].SetLink(Direction.South, locations["root"]);
             locations["north1"].AddNpc("MiB", CharacterFactory.Generate());
+            locations["north1"].AddNpc("MiB2", CharacterFactory.Generate());
 
             return locations;
         }
