@@ -14,11 +14,19 @@ namespace Keshi.Entity
         public void Attack(int damage)
         {
             Console.Write("Direct hit!");
+            Life -= damage;
+            if (Life == 0)
+                Console.Write("Death");
         }
 
         public int GetHitValue()
         {
             return Dexterity;
+        }
+
+        public int GetDamage()
+        {
+            return Strength;
         }
 
         public bool isHit(int hitValue)
@@ -36,9 +44,17 @@ namespace Keshi.Entity
         {
             var description = new StringBuilder();
 
-            description.AppendLine($"Strength: {this.Strength}");
-            description.AppendLine($"Dexterity: {this.Dexterity}");
-            description.AppendLine($"Life: {this.Life}");
+            if (Life > 0)
+            {
+
+                description.AppendLine($"Strength: {this.Strength}");
+                description.AppendLine($"Dexterity: {this.Dexterity}");
+                description.AppendLine($"Life: {this.Life}");
+            }
+            else
+            {
+                description.AppendLine("Dead body");
+            }
 
             return description.ToString();
         }
