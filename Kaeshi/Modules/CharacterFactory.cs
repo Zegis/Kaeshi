@@ -1,8 +1,4 @@
 ﻿using Keshi.Entity;
-using Keshi.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Keshi.Modules
 {
@@ -10,12 +6,10 @@ namespace Keshi.Modules
     {
         static public Character Generate()
         {
-            var ret = new Character
-            {
-                Strength = Dice.Throw(),
-                Dexterity = Dice.Throw()
-            };
-            ret.Life = ret.Strength * 10;
+            int strength = Dice.Throw();
+            int dexterity = Dice.Throw();
+            int maxLife = strength * 5;
+            var ret = new Character(strength, dexterity, maxLife);
 
             return ret;
         }

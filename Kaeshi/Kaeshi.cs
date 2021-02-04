@@ -13,9 +13,7 @@ namespace Kaeshi
 
             Character hero = CharacterFactory.Generate();
 
-            Console.WriteLine("Strength: {0}", hero.Strength);
-            Console.WriteLine("Dexterity: {0}", hero.Dexterity);
-            Console.WriteLine("Life: {0}", hero.Life);
+            Console.WriteLine(hero.Observe());
 
             var map = new Map();
 
