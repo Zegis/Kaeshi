@@ -29,11 +29,19 @@ namespace Keshi.Entity
 
         public string Observe()
         {
+            StringBuilder fullDescription = new StringBuilder();
+
             if (visited)
-                return secondaryDescription + " " + String.Join("", npcs.Keys);
+                fullDescription.AppendLine(secondaryDescription);
             else
-                return primaryDescription + " " + String.Join("", npcs.Keys);
-            
+                fullDescription.AppendLine(primaryDescription);
+
+            fullDescription.AppendLine("You see:");
+            fullDescription.AppendJoin(',', npcs.Where(x => x.Value.IsAlive() == true).Select(x => x.Key));
+            fullDescription.AppendLine("\nYou see bodies of:");
+            fullDescription.AppendJoin(",", npcs.Where(x => x.Value.IsAlive() == false).SelectMany(x => x.Key));
+
+            return fullDescription.ToString();
         }
 
         public IVisible ObserveNpc(string NpcName)
