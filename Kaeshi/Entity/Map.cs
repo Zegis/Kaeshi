@@ -42,7 +42,7 @@ namespace Keshi.Entity
             {
                 current.visited = true;
                 current = newLocation;
-                Console.Write($"You wentured ventured {direction}");
+                Console.Write($"You ventured {direction}");
             }
             else
             {
