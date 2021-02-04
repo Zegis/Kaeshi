@@ -7,5 +7,7 @@ namespace Keshi.Interfaces
     interface IAttacker
     {
         int GetHitValue();
+
+        int GetDamage();
     }
 }

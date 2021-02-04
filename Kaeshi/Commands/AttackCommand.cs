@@ -30,7 +30,7 @@ namespace Keshi.Commands
             var hitValue = Dice.Throw(_attacker.GetHitValue());
             if (_target.isHit(hitValue))
             {
-                _target.Attack(0);
+                _target.Attack(_attacker.GetDamage());
             }
 
             return GameState.Play;
