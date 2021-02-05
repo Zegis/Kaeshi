@@ -39,7 +39,7 @@ namespace Keshi.Entity
             fullDescription.AppendLine("You see:");
             fullDescription.AppendJoin(',', npcs.Where(x => x.Value.IsAlive() == true).Select(x => x.Key));
             fullDescription.AppendLine("\nYou see bodies of:");
-            fullDescription.AppendJoin(",", npcs.Where(x => x.Value.IsAlive() == false).SelectMany(x => x.Key));
+            fullDescription.AppendJoin(",", npcs.Where(x => x.Value.IsAlive() == false).Select(x => x.Key));
 
             return fullDescription.ToString();
         }
