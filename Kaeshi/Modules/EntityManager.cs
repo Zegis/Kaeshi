@@ -51,9 +51,9 @@ namespace Keshi.Modules
             return hero;
         }
 
-        internal ITargetable GetTargetableObject(string rawTarget)
+        internal IBattler GetTargetableObject(string rawTarget)
         {
-            ITargetable npc = level.GetCurrentLocation().TargetNpc(rawTarget);
+            IBattler npc = level.GetCurrentLocation().TargetNpc(rawTarget);
             if (npc != null)
                 return npc;
 

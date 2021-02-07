@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Keshi.Interfaces
 {
-    interface IAttacker
+    public partial interface IBattler
     {
         int GetHitValue();
 

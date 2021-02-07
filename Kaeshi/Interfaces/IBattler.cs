@@ -1,10 +1,10 @@
 ﻿namespace Keshi.Interfaces
 {
-    public interface ITargetable
+    public partial interface IBattler
     {
         bool IsHit(int hitValue);
 
         bool IsAlive();
-        public void Attack(int damage);
+        public void Injure(int damage);
     }
 }
