@@ -50,7 +50,7 @@ namespace Keshi.Entity
             return retVar;
         }
 
-        public ITargetable TargetNpc(string NpcName)
+        public IBattler TargetNpc(string NpcName)
         {
             npcs.TryGetValue(NpcName, out var retVal);
             return retVal;

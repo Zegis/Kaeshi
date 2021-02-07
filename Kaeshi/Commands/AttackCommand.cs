@@ -7,11 +7,11 @@ namespace Keshi.Commands
 {
     class AttackCommand : ICommand
     {
-        ITargetable _target;
-        IAttacker _attacker;
+        IBattler _target;
+        IBattler _attacker;
 
 
-        public AttackCommand(IAttacker attacker ,ITargetable target)
+        public AttackCommand(IBattler attacker ,IBattler target)
         {
             _attacker = attacker;
             _target = target;
@@ -34,7 +34,13 @@ namespace Keshi.Commands
             var hitValue = Dice.Throw(_attacker.GetHitValue());
             if (_target.IsHit(hitValue))
             {
-                _target.Attack(_attacker.GetDamage());
+                _target.Injure(_attacker.GetDamage());
+            }
+
+            hitValue = Dice.Throw(_target.GetHitValue());
+            if(_attacker.IsHit(hitValue))
+            {
+                _attacker.Injure(_target.GetDamage());
             }
 
             return GameState.Play;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Keshi.Entity
 {
-    public class Character: IVisible, ITargetable, IAttacker
+    public class Character: IVisible, IBattler
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
@@ -21,7 +21,7 @@ namespace Keshi.Entity
             _isAlive = true;
         }
 
-        public void Attack(int damage)
+        public void Injure(int damage)
         {
             Console.Write("Direct hit!");
             _life -= damage;
