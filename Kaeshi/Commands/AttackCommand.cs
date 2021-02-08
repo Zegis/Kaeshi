@@ -25,13 +25,11 @@ namespace Keshi.Commands
                 return GameState.Play;
             }
 
-            if (!_enemy.IsAlive())
-            {
-                Console.Write("Target is dead");
-                return GameState.Play;
-            }
-
             PerformAttack(_hero,_enemy);
+
+            if(!_enemy.IsAlive())
+                return GameState.Play;
+
             PerformAttack(_enemy, _hero);
 
             if(_hero.IsAlive())
@@ -42,6 +40,12 @@ namespace Keshi.Commands
 
         private void PerformAttack(IBattler attacker, IBattler target)
         {
+            if (!target.IsAlive())
+            {
+                Console.Write("Target is unconcious");
+                return;
+            }
+
             var hitValue = Dice.Throw(attacker.GetHitValue());
             if (target.IsHit(hitValue))
             {
