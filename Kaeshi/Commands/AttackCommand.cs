@@ -34,7 +34,10 @@ namespace Keshi.Commands
             PerformAttack(_hero,_enemy);
             PerformAttack(_enemy, _hero);
 
-            return GameState.Play;
+            if(_hero.IsAlive())
+                return GameState.Play;
+
+            return GameState.Lost;
         }
 
         private void PerformAttack(IBattler attacker, IBattler target)
