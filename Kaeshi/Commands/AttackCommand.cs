@@ -7,43 +7,43 @@ namespace Keshi.Commands
 {
     class AttackCommand : ICommand
     {
-        IBattler _target;
-        IBattler _attacker;
+        IBattler _enemy;
+        IBattler _hero;
 
 
-        public AttackCommand(IBattler attacker ,IBattler target)
+        public AttackCommand(IBattler hero ,IBattler enemy)
         {
-            _attacker = attacker;
-            _target = target;
+            _hero = hero;
+            _enemy = enemy;
         }
 
         public GameState Execute()
         {
-            if (_target == null)
+            if (_enemy == null)
             {
                 Console.Write("Nothing to attack");
                 return GameState.Play;
             }
 
-            if(!_target.IsAlive())
+            if (!_enemy.IsAlive())
             {
                 Console.Write("Target is dead");
                 return GameState.Play;
             }
 
-            var hitValue = Dice.Throw(_attacker.GetHitValue());
-            if (_target.IsHit(hitValue))
-            {
-                _target.Injure(_attacker.GetDamage());
-            }
-
-            hitValue = Dice.Throw(_target.GetHitValue());
-            if(_attacker.IsHit(hitValue))
-            {
-                _attacker.Injure(_target.GetDamage());
-            }
+            PerformAttack(_hero,_enemy);
+            PerformAttack(_enemy, _hero);
 
             return GameState.Play;
+        }
+
+        private void PerformAttack(IBattler attacker, IBattler target)
+        {
+            var hitValue = Dice.Throw(attacker.GetHitValue());
+            if (target.IsHit(hitValue))
+            {
+                target.Injure(attacker.GetDamage());
+            }
         }
     }
 }
