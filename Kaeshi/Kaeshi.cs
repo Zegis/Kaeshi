@@ -31,6 +31,13 @@ namespace Kaeshi
                 var command = commandParser.Parse(rawCommand);
                 game = command.Execute();
             }
+
+            if(game == GameState.Lost)
+            {
+                Console.WriteLine();
+                Console.WriteLine("You lost :(");
+                Console.ReadKey();
+            }
         }
     }
 }
