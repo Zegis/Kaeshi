@@ -10,8 +10,9 @@ namespace Keshi.Entity
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         private int _life { get; set; }
+        public  bool _isAlive { get; private set; }
 
-        private bool _isAlive { get; set; }
+        private int Defence { get { return Dexterity; } }
 
         public Character(int strength, int dexterity, int maxLife)
         {
@@ -44,10 +45,8 @@ namespace Keshi.Entity
 
         public bool IsHit(int hitValue)
         {
-            
-            var defence = Dice.Throw(Dexterity);
-            Console.WriteLine($"Trying to hit with {hitValue} against {defence}");
-            if (hitValue >= defence)
+            Console.WriteLine($"Trying to hit with {hitValue} against {Defence}");
+            if (hitValue >= Defence)
                 return true;
 
             return false;
