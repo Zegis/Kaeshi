@@ -1,5 +1,6 @@
 using Keshi.Commands;
 using Keshi.Modules;
+using Moq;
 using NUnit.Framework;
 
 namespace Kaeshi.Tests
@@ -11,8 +12,8 @@ namespace Kaeshi.Tests
         [SetUp]
         public void Setup()
         {
-            var entityManager = new EntityManager();
-            parser = new CommandParser(entityManager);
+            var entityManager = new Mock<IEntityManager>();
+            parser = new CommandParser(entityManager.Object);
         }
 
         [Test]
@@ -66,6 +67,42 @@ namespace Kaeshi.Tests
             var expected = new ExitCommand().GetType();
             var command = parser.Parse("exit");
 
+            Assert.AreEqual(expected, command.GetType());
+        }
+
+        [Test]
+        public void DirectionsAreValidCommands()
+        {
+            var expected = typeof(GoCommand);
+            
+            var command = parser.Parse("north");
+            Assert.AreEqual(expected, command.GetType());
+
+            command = parser.Parse("south");
+            Assert.AreEqual(expected, command.GetType());
+
+            command = parser.Parse("west");
+            Assert.AreEqual(expected, command.GetType());
+
+            command = parser.Parse("east");
+            Assert.AreEqual(expected, command.GetType());
+        }
+
+        [Test]
+        public void AttackIsValidCommands()
+        {
+            var expected = typeof(AttackCommand);
+
+            var command = parser.Parse("attack");
+            Assert.AreEqual(expected, command.GetType());
+        }
+
+        [Test]
+        public void LookIsValidCommands()
+        {
+            var expected = typeof(LookCommand);
+
+            var command = parser.Parse("look");
             Assert.AreEqual(expected, command.GetType());
         }
     }

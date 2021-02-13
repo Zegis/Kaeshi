@@ -3,7 +3,7 @@ using System;
 
 namespace Keshi.Commands
 {
-    class GoCommand : ICommand
+    public class GoCommand : ICommand
     {
         private Map level;
         private Direction moveDirection;
