@@ -17,7 +17,7 @@ namespace Keshi.Modules
             if (string.IsNullOrEmpty(rawCommand))
                 return new NotFoundCommand();
 
-            rawCommand = rawCommand.Trim();
+            rawCommand = rawCommand.Trim().ToLower();
             var commandPieces = rawCommand.Split(' ');
 
             if(commandPieces.Length == 0 || commandPieces.Length > 2)
