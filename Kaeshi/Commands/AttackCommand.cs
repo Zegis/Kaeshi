@@ -5,7 +5,7 @@ using System;
 
 namespace Keshi.Commands
 {
-    class AttackCommand : ICommand
+    public class AttackCommand : ICommand
     {
         IBattler _enemy;
         IBattler _hero;
