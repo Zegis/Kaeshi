@@ -5,9 +5,9 @@ namespace Keshi.Modules
 {
     public class CommandParser
     {
-        private readonly EntityManager entityManager;
+        private readonly IEntityManager entityManager;
 
-        public CommandParser(EntityManager manager)
+        public CommandParser(IEntityManager manager)
         {
             entityManager = manager;
         }

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Keshi.Modules
 {
-    public class EntityManager
+    public class EntityManager : IEntityManager
     {
-        private  Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
+        private Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
         private Map level;
         private Character hero;
 
@@ -17,7 +17,7 @@ namespace Keshi.Modules
 
         public IVisible GetVisibleObject(string key)
         {
-            if("around".Equals(key))
+            if ("around".Equals(key))
             {
                 return level.GetCurrentLocation();
             }
@@ -51,7 +51,7 @@ namespace Keshi.Modules
             return hero;
         }
 
-        internal IBattler GetTargetableObject(string rawTarget)
+        public IBattler GetTargetableObject(string rawTarget)
         {
             IBattler npc = level.GetCurrentLocation().TargetNpc(rawTarget);
             if (npc != null)
