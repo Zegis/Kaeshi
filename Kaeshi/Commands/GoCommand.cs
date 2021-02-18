@@ -1,13 +1,13 @@
 ﻿using Keshi.Entity;
-using System;
+using Keshi.Interfaces;
 
 namespace Keshi.Commands
 {
     public class GoCommand : ICommand
     {
-        private Map level;
+        private IMap level;
         private Direction moveDirection;
-        public GoCommand(Map lvl, Direction moveDir)
+        public GoCommand(IMap lvl, Direction moveDir)
         {
             level = lvl;
             moveDirection = moveDir;

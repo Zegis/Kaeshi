@@ -1,11 +1,11 @@
-﻿using Keshi.Modules;
+﻿using Keshi.Interfaces;
+using Keshi.Modules;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Keshi.Entity
 {
-    public class Map
+    public class Map : IMap
     {
         private readonly Dictionary<string, Location> locations;
         private Location current;
@@ -18,8 +18,8 @@ namespace Keshi.Entity
         private Dictionary<string, Location> LoadLocations()
         {
             var locations = new Dictionary<string, Location>();
-            locations.Add("root", new Location("You see a root.","Root is still there..."));
-            locations.Add("north1", new Location("This is north location","Is still on north"));
+            locations.Add("root", new Location("You see a root.", "Root is still there..."));
+            locations.Add("north1", new Location("This is north location", "Is still on north"));
 
             current = locations["root"];
             current.SetLink(Direction.North, locations["north1"]);

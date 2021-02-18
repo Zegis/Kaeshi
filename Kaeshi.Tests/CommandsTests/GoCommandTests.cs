@@ -1,5 +1,7 @@
 ﻿using Keshi.Commands;
 using Keshi.Entity;
+using Keshi.Interfaces;
+using Moq;
 using NUnit.Framework;
 
 namespace Kaeshi.Tests.CommandsTests
@@ -10,9 +12,9 @@ namespace Kaeshi.Tests.CommandsTests
         public void GoCommandReturnsPlay()
         {
             GameState expected = GameState.Play;
-            Map map = new Map();
+            var map = new Mock<IMap>();
 
-            var command = new GoCommand(map, Direction.North);
+            var command = new GoCommand(map.Object, Direction.North);
             var actual = command.Execute();
 
             Assert.AreEqual(expected, actual);
