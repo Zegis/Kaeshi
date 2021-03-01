@@ -9,7 +9,7 @@ namespace Kaeshi
         static void Main(string[] args)
         {
             Dice.setSeed(1010);
-            Console.WriteLine("Your character:");
+            Console.WriteLine("Your character: ");
 
             Character hero = CharacterFactory.Generate();
 
