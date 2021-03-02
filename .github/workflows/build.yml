@@ -51,6 +51,5 @@ jobs:
           ./.sonar/scanner/dotnet-sonarscanner begin /k:"Zegis_Kaeshi" /o:"zegis" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build --no-restore
           dotnet test --blame --no-build --verbosity normal --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=opencover.xml
-    - name: SonarCloud Scan
           
           ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
