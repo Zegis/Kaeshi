@@ -6,7 +6,7 @@ namespace Keshi.Commands
 {
     public class LookCommand : ICommand
     {
-        private IVisible _visible;
+        private readonly IVisible _visible;
 
         public LookCommand(IVisible target)
         {
