@@ -21,7 +21,7 @@ namespace Keshi.Entity
         public Location(string firstDescription, string secondDescription)
         {
             linkedLoctions = new Dictionary<Direction, Location>();
-            npcs = new Dictionary<string, Character>();
+            npcs = new Dictionary<string, Character>(StringComparer.OrdinalIgnoreCase);
             primaryDescription = firstDescription;
             secondaryDescription = secondDescription;
             visited = false;
