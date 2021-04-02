@@ -1,16 +1,19 @@
 ﻿using Keshi.Interfaces;
 using Keshi.Modules;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Keshi.Entity
 {
-    public class Character: IVisible, IBattler
+    public class Character : IVisible, IBattler
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         private int _life { get; set; }
-        public  bool _isAlive { get; private set; }
+        public bool _isAlive { get; private set; }
+
+        public List<Item> Backpack {get; private set;}
 
         private int Defence { get { return Dexterity; } }
 
@@ -20,6 +23,18 @@ namespace Keshi.Entity
             Dexterity = dexterity;
             _life = maxLife;
             _isAlive = true;
+
+            Backpack = new List<Item>();
+        }
+
+        public void PutInBackpack(Item item)
+        {
+            Backpack.Add(item);
+        }
+
+        public void RemoveFromBackpack(Item item)
+        {
+            Backpack.Remove(item);
         }
 
         public void Injure(int damage)
