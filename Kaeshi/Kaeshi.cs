@@ -1,5 +1,5 @@
-﻿using Keshi.Entity;
-using Keshi.Modules;
+﻿using Kaeshi.Entity;
+using Kaeshi.Modules;
 using System;
 
 namespace Kaeshi

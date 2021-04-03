@@ -1,7 +1,6 @@
-﻿using Keshi.Entity;
-using Keshi.Interfaces;
+﻿using Kaeshi.Entity;
 
-namespace Keshi.Modules
+namespace Kaeshi.Interfaces
 {
     public interface IEntityManager
     {

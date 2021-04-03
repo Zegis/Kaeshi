@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Keshi.Modules
+namespace Kaeshi.Modules
 {
     public class Dice
     {

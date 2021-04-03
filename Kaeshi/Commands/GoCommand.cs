@@ -1,7 +1,7 @@
-﻿using Keshi.Entity;
-using Keshi.Interfaces;
+﻿using Kaeshi.Entity;
+using Kaeshi.Interfaces;
 
-namespace Keshi.Commands
+namespace Kaeshi.Commands
 {
     public class GoCommand : ICommand
     {

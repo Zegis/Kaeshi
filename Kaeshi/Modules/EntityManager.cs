@@ -1,8 +1,8 @@
-﻿using Keshi.Entity;
-using Keshi.Interfaces;
+﻿using Kaeshi.Entity;
+using Kaeshi.Interfaces;
 using System.Collections.Generic;
 
-namespace Keshi.Modules
+namespace Kaeshi.Modules
 {
     public class EntityManager : IEntityManager
     {

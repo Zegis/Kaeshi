@@ -1,5 +1,6 @@
-using Keshi.Commands;
-using Keshi.Modules;
+using Kaeshi.Commands;
+using Kaeshi.Interfaces;
+using Kaeshi.Modules;
 using Moq;
 using NUnit.Framework;
 

@@ -1,6 +1,6 @@
-﻿using Keshi.Entity;
+﻿using Kaeshi.Entity;
 
-namespace Keshi.Modules
+namespace Kaeshi.Modules
 {
     public class CharacterFactory
     {
