@@ -1,8 +1,8 @@
-﻿using Keshi.Entity;
-using Keshi.Interfaces;
+﻿using Kaeshi.Entity;
+using Kaeshi.Interfaces;
 using System;
 
-namespace Keshi.Commands
+namespace Kaeshi.Commands
 {
     public class LookCommand : ICommand
     {

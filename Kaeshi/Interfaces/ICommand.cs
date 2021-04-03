@@ -1,6 +1,6 @@
-﻿using Keshi.Entity;
+﻿using Kaeshi.Entity;
 
-namespace Keshi.Commands
+namespace Kaeshi.Interfaces
 {
     public interface ICommand
     {

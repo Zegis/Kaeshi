@@ -1,7 +1,8 @@
-﻿using Keshi.Entity;
+﻿using Kaeshi.Entity;
+using Kaeshi.Interfaces;
 using System;
 
-namespace Keshi.Commands
+namespace Kaeshi.Commands
 {
     public class ExitCommand : ICommand
     {

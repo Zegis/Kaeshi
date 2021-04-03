@@ -1,4 +1,4 @@
-﻿using Keshi.Entity;
+﻿using Kaeshi.Entity;
 using NUnit.Framework;
 
 namespace Kaeshi.Tests

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Keshi.Interfaces
+namespace Kaeshi.Interfaces
 {
     public interface IVisitable
     {

@@ -1,7 +1,8 @@
-﻿using Keshi.Commands;
-using Keshi.Entity;
+﻿using Kaeshi.Commands;
+using Kaeshi.Entity;
+using Kaeshi.Interfaces;
 using System;
-namespace Keshi.Modules
+namespace Kaeshi.Modules
 {
     public class CommandParser
     {

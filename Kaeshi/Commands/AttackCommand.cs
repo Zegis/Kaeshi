@@ -1,9 +1,9 @@
-﻿using Keshi.Entity;
-using Keshi.Interfaces;
-using Keshi.Modules;
+﻿using Kaeshi.Entity;
+using Kaeshi.Interfaces;
+using Kaeshi.Modules;
 using System;
 
-namespace Keshi.Commands
+namespace Kaeshi.Commands
 {
     public class AttackCommand : ICommand
     {

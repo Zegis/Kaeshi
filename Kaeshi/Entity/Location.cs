@@ -1,10 +1,10 @@
-﻿using Keshi.Interfaces;
+﻿using Kaeshi.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Keshi.Entity
+namespace Kaeshi.Entity
 {
     public class Location : IVisible
     {

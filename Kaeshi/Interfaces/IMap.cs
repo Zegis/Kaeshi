@@ -1,6 +1,6 @@
-﻿using Keshi.Entity;
+﻿using Kaeshi.Entity;
 
-namespace Keshi.Interfaces
+namespace Kaeshi.Interfaces
 {
     public interface IMap
     {

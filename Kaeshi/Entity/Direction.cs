@@ -1,4 +1,4 @@
-﻿namespace Keshi.Entity
+﻿namespace Kaeshi.Entity
 {
     public enum Direction
     {

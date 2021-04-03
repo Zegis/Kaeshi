@@ -1,5 +1,5 @@
-﻿using Keshi.Commands;
-using Keshi.Entity;
+﻿using Kaeshi.Commands;
+using Kaeshi.Entity;
 using NUnit.Framework;
 
 namespace Kaeshi.Tests.CommandsTests

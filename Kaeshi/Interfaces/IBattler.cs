@@ -1,4 +1,4 @@
-﻿namespace Keshi.Interfaces
+﻿namespace Kaeshi.Interfaces
 {
     public partial interface IBattler
     {

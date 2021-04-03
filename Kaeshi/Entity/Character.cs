@@ -1,10 +1,10 @@
-﻿using Keshi.Interfaces;
-using Keshi.Modules;
+﻿using Kaeshi.Interfaces;
+using Kaeshi.Modules;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Keshi.Entity
+namespace Kaeshi.Entity
 {
     public class Character : IVisible, IBattler
     {
