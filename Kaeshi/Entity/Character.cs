@@ -1,12 +1,11 @@
 ﻿using Kaeshi.Interfaces;
-using Kaeshi.Modules;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Kaeshi.Entity
 {
-    public class Character : IVisible, IBattler
+    public class Character : IVisible, IBattler, IBackpack
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
