@@ -7,12 +7,11 @@ namespace Keshi.Entity
 {
     public class Map : IMap
     {
-        private readonly Dictionary<string, Location> locations;
         private Location current;
 
         public Map()
         {
-            locations = LoadLocations();
+            LoadLocations();
         }
 
         private Dictionary<string, Location> LoadLocations()

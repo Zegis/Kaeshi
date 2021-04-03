@@ -8,17 +8,17 @@ namespace Keshi.Entity
 {
     public class Location : IVisible
     {
-        public bool visited;
+        public bool visited { get; set; }
 
-        private string primaryDescription;
+        private readonly string primaryDescription;
 
-        private string secondaryDescription;
+        private readonly string secondaryDescription;
 
-        private Dictionary<string, Character> npcs;
+        private readonly Dictionary<string, Character> npcs;
 
-        private Dictionary<string, Item> items;
+        private readonly Dictionary<string, Item> items;
 
-        private Dictionary<Direction, Location> linkedLoctions;
+        private readonly Dictionary<Direction, Location> linkedLoctions;
 
         public Location(string firstDescription, string secondDescription)
         {
@@ -40,9 +40,9 @@ namespace Keshi.Entity
                 fullDescription.AppendLine(primaryDescription);
 
             fullDescription.AppendLine("You see:");
-            fullDescription.AppendJoin(',', npcs.Where(x => x.Value.IsAlive() == true).Select(x => x.Key));
+            fullDescription.AppendJoin(',', npcs.Where(x => x.Value.IsAlive()).Select(x => x.Key));
             fullDescription.AppendLine("\nYou see bodies of:");
-            fullDescription.AppendJoin(",", npcs.Where(x => x.Value.IsAlive() == false).Select(x => x.Key));
+            fullDescription.AppendJoin(",", npcs.Where(x => !x.Value.IsAlive()).Select(x => x.Key));
             fullDescription.AppendLine("\nOn floor lies:");
             fullDescription.AppendJoin(",", items.Select(x => x.Key));
 
