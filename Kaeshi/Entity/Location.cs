@@ -16,12 +16,15 @@ namespace Keshi.Entity
 
         private Dictionary<string, Character> npcs;
 
+        private Dictionary<string, Item> items;
+
         private Dictionary<Direction, Location> linkedLoctions;
 
         public Location(string firstDescription, string secondDescription)
         {
             linkedLoctions = new Dictionary<Direction, Location>();
             npcs = new Dictionary<string, Character>(StringComparer.OrdinalIgnoreCase);
+            items = new Dictionary<string, Item>(StringComparer.OrdinalIgnoreCase);
             primaryDescription = firstDescription;
             secondaryDescription = secondDescription;
             visited = false;
@@ -40,6 +43,8 @@ namespace Keshi.Entity
             fullDescription.AppendJoin(',', npcs.Where(x => x.Value.IsAlive() == true).Select(x => x.Key));
             fullDescription.AppendLine("\nYou see bodies of:");
             fullDescription.AppendJoin(",", npcs.Where(x => x.Value.IsAlive() == false).Select(x => x.Key));
+            fullDescription.AppendLine("\nOn floor lies:");
+            fullDescription.AppendJoin(",", items.Select(x => x.Key));
 
             return fullDescription.ToString();
         }
@@ -59,6 +64,11 @@ namespace Keshi.Entity
         public void AddNpc(string NpcName ,Character NpcToAdd)
         {
             npcs[NpcName] = NpcToAdd;
+        }
+
+        public void AddItem(string itemName, Item itemToAdd)
+        {
+            items[itemName] = itemToAdd;
         }
 
         public void SetLink(Direction direction, Location locationToLink)

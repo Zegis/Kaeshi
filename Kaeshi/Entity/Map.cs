@@ -28,6 +28,8 @@ namespace Keshi.Entity
             locations["north1"].AddNpc("MiB", CharacterFactory.Generate());
             locations["north1"].AddNpc("MiB2", CharacterFactory.Generate());
 
+            locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
+
             return locations;
         }
 
