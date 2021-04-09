@@ -1,6 +1,8 @@
-﻿namespace Kaeshi.Entity
+﻿using Kaeshi.Interfaces;
+
+namespace Kaeshi.Entity
 {
-    public class Item
+    public class Item: IVisible
     {
         public string Name { get; set; }
 
@@ -18,5 +20,9 @@
             Description = description;
         }
 
+        public string Observe()
+        {
+            return $"{Name}\r\n{Description}";
+        }
     }
 }

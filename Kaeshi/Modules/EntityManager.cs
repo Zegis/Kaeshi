@@ -24,9 +24,14 @@ namespace Kaeshi.Modules
             if ("yourself".Equals(key))
                 return hero;
 
-            IVisible npc = level.GetCurrentLocation().ObserveNpc(key);
-            if (npc != null)
-                return npc;
+            IVisible target = level.GetCurrentLocation().ObserveNpc(key);
+            if (target != null)
+                return target;
+
+            target = level.GetCurrentLocation().ObserveItem(key);
+
+            if (target != null)
+                return target;
 
             return null;
         }
