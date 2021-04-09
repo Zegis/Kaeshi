@@ -64,5 +64,14 @@ namespace Kaeshi.Modules
 
             return null;
         }
+
+        public Item GetItem(string rawTarget)
+        {
+            Item item = level.GetCurrentLocation().GetItem(rawTarget);
+            if (item != null)
+                return item;
+
+            return null;
+        }
     }
 }

@@ -43,6 +43,9 @@ namespace Kaeshi.Modules
                     var map = entityManager.GetMap();
                     var moveDirection = (Direction) Enum.Parse(typeof(Direction), commandPieces[0], true);
                     return new GoCommand(map, moveDirection);
+                case "take":
+                    var item = entityManager.GetItem(rawTarget);
+                    return new TakeCommand(entityManager.GetHero(), item);
                 case "attack":
                     var npc = entityManager.GetTargetableObject(rawTarget);
                     return new AttackCommand(entityManager.GetHero(),npc);
