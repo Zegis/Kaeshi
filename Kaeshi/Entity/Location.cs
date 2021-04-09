@@ -30,6 +30,12 @@ namespace Kaeshi.Entity
             visited = false;
         }
 
+        internal IVisible ObserveItem(string itemKey)
+        {
+            items.TryGetValue(itemKey, out var retVar);
+            return retVar;
+        }
+
         public string Observe()
         {
             StringBuilder fullDescription = new StringBuilder();
