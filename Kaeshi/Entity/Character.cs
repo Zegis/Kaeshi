@@ -81,6 +81,8 @@ namespace Kaeshi.Entity
                 description.AppendLine($"Strength: {this.Strength}");
                 description.AppendLine($"Dexterity: {this.Dexterity}");
                 description.AppendLine($"Life: {this._life}");
+
+                description.AppendLine($"\nYou have {this.Backpack.Count} item(s) in backpack");
             }
             else
             {
