@@ -57,7 +57,8 @@ namespace Kaeshi.Entity
 
         internal Item GetItem(string itemKey)
         {
-            items.TryGetValue(itemKey, out var retVar);
+            if(items.TryGetValue(itemKey, out var retVar))
+                items.Remove(itemKey);
             return retVar;
         }
 
