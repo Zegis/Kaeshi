@@ -11,5 +11,6 @@ namespace Kaeshi.Interfaces
         void SetHero(Character hero);
         void SetMap(Map map);
         IBattler GetTargetableObject(string rawTarget);
+        Item GetItem(string rawTarget);
     }
 }

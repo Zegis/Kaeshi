@@ -55,6 +55,12 @@ namespace Kaeshi.Entity
             return fullDescription.ToString();
         }
 
+        internal Item GetItem(string itemKey)
+        {
+            items.TryGetValue(itemKey, out var retVar);
+            return retVar;
+        }
+
         public IVisible ObserveNpc(string NpcName)
         {
             npcs.TryGetValue(NpcName, out var retVar);
