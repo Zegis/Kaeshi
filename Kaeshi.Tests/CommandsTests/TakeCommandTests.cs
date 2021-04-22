@@ -20,5 +20,16 @@ namespace Kaeshi.Tests.CommandsTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void LookCommandAddsToBackpack()
+        {
+            Mock<IBackpack> backpack = new Mock<IBackpack>();
+            var item = new Item("test", "description");
+            var command = new TakeCommand(backpack.Object, item);
+            command.Execute();
+
+            backpack.Verify(x => x.PutInBackpack(item), Times.Once);
+        }
     }
 }
