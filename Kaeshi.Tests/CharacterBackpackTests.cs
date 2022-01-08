@@ -46,5 +46,17 @@ namespace Kaeshi.Tests
 
             Assert.Less(backpackCount, initialBackpackCount);
         }
+
+        [Test]
+        public void CharacterBackpackIsDisplayingProperly()
+        {
+            chara = new Character(4, 5, 20);
+            Item item = new Item("foo","bar");
+            chara.PutInBackpack(item);
+
+            var display = chara.DisplayBackpack();
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(display));
+        }
     }
 }
