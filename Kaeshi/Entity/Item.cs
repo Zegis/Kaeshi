@@ -1,4 +1,5 @@
 ﻿using Kaeshi.Interfaces;
+using Keshi.Interfaces;
 
 namespace Kaeshi.Entity
 {
@@ -20,7 +21,7 @@ namespace Kaeshi.Entity
             Description = description;
         }
 
-        public string Observe()
+        public virtual string Observe()
         {
             return $"{Name}\r\n{Description}";
         }
