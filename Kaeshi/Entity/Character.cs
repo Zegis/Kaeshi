@@ -31,6 +31,17 @@ namespace Kaeshi.Entity
             Backpack.Add(item);
         }
 
+        public string DisplayBackpack()
+        {
+            var backpackView = new StringBuilder();
+            foreach(Item i in Backpack)
+            {
+                backpackView.AppendLine(i.Observe());
+            }
+
+            return backpackView.ToString();
+        }
+
         public void RemoveFromBackpack(Item item)
         {
             Backpack.Remove(item);
