@@ -4,7 +4,7 @@ using System;
 
 namespace Kaeshi.Commands
 {
-    class OpenInventoryCommand : ICommand
+    public class OpenInventoryCommand : ICommand
     {
         Character _player;
 

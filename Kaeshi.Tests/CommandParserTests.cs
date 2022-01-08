@@ -106,5 +106,13 @@ namespace Kaeshi.Tests
             var command = parser.Parse("look");
             Assert.AreEqual(expected, command.GetType());
         }
+
+        [Test]
+        public void OpenIsValidCommand()
+        {
+            var expected = typeof(OpenInventoryCommand);
+            var command = parser.Parse("open");
+            Assert.AreEqual(expected, command.GetType());
+        }
     }
 }
