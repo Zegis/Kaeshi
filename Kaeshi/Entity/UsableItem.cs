@@ -1,16 +1,13 @@
-﻿using Kaeshi.Entity;
-using Keshi.Interfaces;
+﻿using Keshi.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Keshi.Entity
+namespace Kaeshi.Entity
 {
     public class UsableItem : Item, IUsable
     {
         private int _usesRemaining;
 
-        UsableItem(string name, string description, int maxUses): base(name, description)
+        public UsableItem(string name, string description, int maxUses): base(name, description)
         {
             _usesRemaining = maxUses;
         }

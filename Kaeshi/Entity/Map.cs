@@ -28,6 +28,7 @@ namespace Kaeshi.Entity
             locations["north1"].AddNpc("MiB2", CharacterFactory.Generate());
 
             locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
+            locations["root"].AddItem("AidKit", new UsableItem("AidKit","First aid kit, heals small amount of health",2));
 
             return locations;
         }
