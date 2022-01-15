@@ -1,4 +1,4 @@
-﻿using Keshi.Interfaces;
+﻿using Kaeshi.Interfaces;
 using System;
 
 namespace Kaeshi.Entity
@@ -7,17 +7,21 @@ namespace Kaeshi.Entity
     {
         private int _usesRemaining;
 
-        public UsableItem(string name, string description, int maxUses): base(name, description)
+        private readonly Action<IBattler> _usageEffect;
+
+        public UsableItem(string name, string description, int maxUses, Action<IBattler> effect): base(name, description)
         {
             _usesRemaining = maxUses;
+            _usageEffect = effect;
         }
 
-        public void Use()
+        public void Use(IBattler target)
         {
             if (_usesRemaining == 0)
                 Console.Write("Item is depleted");
 
             _usesRemaining--;
+            _usageEffect(target);
             Console.Write($"Used {Name}");
         }
 
