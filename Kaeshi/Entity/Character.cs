@@ -50,7 +50,17 @@ namespace Kaeshi.Entity
 
         public UsableItem GetUsableItem(string itemName)
         {
-            return (UsableItem)Backpack.First(x => itemName.Equals(x.Name));
+            UsableItem ret;
+            try
+            {
+                 ret = (UsableItem)Backpack.First(x => itemName.Equals(x.Name));
+            }
+            catch(InvalidOperationException)
+            {
+                ret = null;
+            }
+
+            return ret;
         }
         public void Injure(int damage)
         {

@@ -1,5 +1,4 @@
 ﻿using Kaeshi.Interfaces;
-using Keshi.Interfaces;
 
 namespace Kaeshi.Entity
 {

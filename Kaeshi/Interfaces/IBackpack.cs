@@ -7,6 +7,6 @@ namespace Kaeshi.Interfaces
         void PutInBackpack(Item item);
         void RemoveFromBackpack(Item item);
         string DisplayBackpack();
-        IUsable GetUsableItem(string name);
+        UsableItem GetUsableItem(string name);
     }
 }
