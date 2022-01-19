@@ -53,7 +53,7 @@ namespace Kaeshi.Entity
             UsableItem ret;
             try
             {
-                 ret = (UsableItem)Backpack.First(x => itemName.Equals(x.Name));
+                 ret = (UsableItem)Backpack.First(x => itemName.Equals(x.Name,StringComparison.OrdinalIgnoreCase));
             }
             catch(InvalidOperationException)
             {
