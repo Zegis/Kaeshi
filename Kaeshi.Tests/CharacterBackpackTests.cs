@@ -51,12 +51,35 @@ namespace Kaeshi.Tests
         public void CharacterBackpackIsDisplayingProperly()
         {
             chara = new Character(4, 5, 20);
-            Item item = new Item("foo","bar");
+            Item item = new Item("foo", "bar");
             chara.PutInBackpack(item);
 
             var display = chara.DisplayBackpack();
 
             Assert.IsFalse(string.IsNullOrWhiteSpace(display));
+        }
+
+        [Test]
+        public void CharacterBackpackIsProperlyRetrievingUsableItem()
+        {
+            chara = new Character(4, 5, 20);
+            UsableItem item = new UsableItem("foo", "bar", 4, (a) => a.Injure(2));
+            chara.PutInBackpack(item);
+
+            var itemRetrieved = chara.GetUsableItem("foo");
+
+            Assert.IsNotNull(itemRetrieved);
+            Assert.IsInstanceOf(typeof(UsableItem), itemRetrieved);            
+        }
+
+        [Test]
+        public void CharacterBackpackCantRetrieveInvalidItem()
+        {
+            chara = new Character(4, 5, 20);
+
+            var itemRetrieved = chara.GetUsableItem("foo");
+
+            Assert.IsNull(itemRetrieved);
         }
     }
 }
