@@ -22,7 +22,7 @@ namespace Kaeshi.Entity
 
             _usesRemaining--;
             _usageEffect(target);
-            Console.Write($"Used {Name}");
+            Console.Write($"Used {Name}; uses left: {_usesRemaining}");
         }
 
         public override string Observe()

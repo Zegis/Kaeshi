@@ -51,6 +51,9 @@ namespace Kaeshi.Modules
                     return new AttackCommand(entityManager.GetHero(),npc);
                 case "open":
                     return new OpenInventoryCommand(entityManager.GetHero());
+                case "use":
+                    var usableItem = entityManager.GetHero().GetUsableItem(rawTarget);
+                    return new UseCommand(usableItem, entityManager.GetHero());
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
