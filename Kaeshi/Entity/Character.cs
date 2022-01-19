@@ -1,6 +1,7 @@
 ﻿using Kaeshi.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Kaeshi.Entity
@@ -47,6 +48,10 @@ namespace Kaeshi.Entity
             Backpack.Remove(item);
         }
 
+        public UsableItem GetUsableItem(string itemName)
+        {
+            return (UsableItem)Backpack.First(x => itemName.Equals(x.Name));
+        }
         public void Injure(int damage)
         {
             Console.Write("Direct hit!");
