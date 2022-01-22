@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Kaeshi</AssemblyName>
-    <RootNamespace>Keshi</RootNamespace>
+    <RootNamespace>Kaeshi</RootNamespace>
   </PropertyGroup>
 
 </Project>
