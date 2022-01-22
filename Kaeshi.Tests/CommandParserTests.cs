@@ -14,6 +14,7 @@ namespace Kaeshi.Tests
         public void Setup()
         {
             var entityManager = new Mock<IEntityManager>();
+            entityManager.Setup(x => x.GetHero()).Returns(new Entity.Character(1,1,10));
             parser = new CommandParser(entityManager.Object);
         }
 
@@ -112,6 +113,15 @@ namespace Kaeshi.Tests
         {
             var expected = typeof(OpenInventoryCommand);
             var command = parser.Parse("open");
+            Assert.AreEqual(expected, command.GetType());
+        }
+
+        [Test]
+        public void UseIsValidCommand()
+        {
+
+            var expected = typeof(UseCommand);
+            var command = parser.Parse("use");
             Assert.AreEqual(expected, command.GetType());
         }
     }
