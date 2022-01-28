@@ -1,6 +1,7 @@
 using Kaeshi.Commands;
 using Kaeshi.Interfaces;
 using Kaeshi.Modules;
+using Kaeshi.Entity;
 using Moq;
 using NUnit.Framework;
 
@@ -14,7 +15,7 @@ namespace Kaeshi.Tests
         public void Setup()
         {
             var entityManager = new Mock<IEntityManager>();
-            entityManager.Setup(x => x.GetHero()).Returns(new Entity.Character(1,1,10));
+            entityManager.Setup(x => x.GetHero()).Returns(new Character(1,1,10));
             parser = new CommandParser(entityManager.Object);
         }
 
