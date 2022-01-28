@@ -6,6 +6,7 @@
 
         bool IsAlive();
         public void Injure(int damage);
+        public void Heal(int pointsToHeal);
 
         int GetHitValue();
 

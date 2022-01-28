@@ -73,6 +73,12 @@ namespace Kaeshi.Entity
             }
         }
 
+        public void Heal(int pointsToHeal)
+        {
+            if (_isAlive)
+                _life += pointsToHeal;
+        }
+
         public int GetHitValue()
         {
             return Dexterity;
