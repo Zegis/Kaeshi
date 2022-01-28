@@ -18,7 +18,10 @@ namespace Kaeshi.Entity
         public void Use(IBattler target)
         {
             if (_usesRemaining == 0)
+            {
                 Console.Write("Item is depleted");
+                return;
+            }
 
             _usesRemaining--;
             _usageEffect(target);
