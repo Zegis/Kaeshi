@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kaeshi.Entity
 {
-    public class Character : IVisible, IBattler, IBackpack
+    public class Character : IVisible, IBattler, IBackpack, IEquipment
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
@@ -14,6 +14,8 @@ namespace Kaeshi.Entity
         public bool _isAlive { get; private set; }
 
         public List<Item> Backpack {get; private set;}
+
+        public Dictionary<EquippableType,EquippableItem> Equipment { get; private set; }
 
         private int Defence { get { return Dexterity; } }
 
@@ -25,6 +27,7 @@ namespace Kaeshi.Entity
             _isAlive = true;
 
             Backpack = new List<Item>();
+            Equipment = new Dictionary<EquippableType, EquippableItem>();
         }
 
         public void PutInBackpack(Item item)
@@ -122,6 +125,21 @@ namespace Kaeshi.Entity
             }
 
             return description.ToString();
+        }
+
+        public void Equip(EquippableItem item, EquippableType type)
+        {
+            if(Equipment.TryAdd(type, item))
+            {
+                Backpack.Remove(item);
+            }
+        }
+
+        public void Unequip(EquippableType type)
+        {
+            Equipment.Remove(type, out var item);
+            if (item != null)
+                Backpack.Add(item);
         }
     }
 }
