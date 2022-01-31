@@ -6,16 +6,18 @@ namespace Kaeshi.Entity
 {
     public class EquipableItem: Item
     {
-        public readonly int _modificator;
+        public readonly int modificator;
+        public readonly EquipableType type;
 
-        public EquipableItem(string name, string description, int modificator) : base(name, description)
+        public EquipableItem(string name, string description, int modificator, EquipableType itemType) : base(name, description)
         {
-            _modificator = modificator;
+            this.modificator = modificator;
+            type = itemType;
         }
 
         public int GetModificator()
         {
-            return _modificator;
+            return modificator;
         }
     }
 }
