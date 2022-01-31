@@ -1,6 +1,6 @@
 ﻿namespace Kaeshi.Entity
 {
-    public enum EquipableType
+    public enum EquippableType
     {
         Armor = 1,
         Weapon = 2
