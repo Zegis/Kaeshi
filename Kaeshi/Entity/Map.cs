@@ -29,6 +29,7 @@ namespace Kaeshi.Entity
 
             locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
             locations["root"].AddItem("AidKit", new UsableItem("AidKit","First aid kit, heals small amount of health",2, EffectsLibrary.Get("heal")));
+            locations["root"].AddItem("Armor", new EquippableItem("Armor", "Standard buletproof vest", 2, EquippableType.Armor));
 
             return locations;
         }
