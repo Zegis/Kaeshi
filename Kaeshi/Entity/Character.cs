@@ -65,6 +65,22 @@ namespace Kaeshi.Entity
 
             return ret;
         }
+
+        public EquippableItem GetEquippableItem(string itemName)
+        {
+            EquippableItem ret;
+            try
+            {
+                ret = (EquippableItem)Backpack.First(x => itemName.Equals(x.Name, StringComparison.OrdinalIgnoreCase));
+            }
+            catch (InvalidOperationException)
+            {
+                ret = null;
+            }
+
+            return ret;
+        }
+
         public void Injure(int damage)
         {
             Console.Write("Direct hit!");
@@ -132,7 +148,10 @@ namespace Kaeshi.Entity
             if(Equipment.TryAdd(type, item))
             {
                 Backpack.Remove(item);
+                Console.Write($"Equipped {item.Name} as {item.type}");
+                return;
             }
+            Console.Write($"You already use {item.type}");
         }
 
         public void Unequip(EquippableType type)

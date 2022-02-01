@@ -54,6 +54,9 @@ namespace Kaeshi.Modules
                 case "use":
                     var usableItem = entityManager.GetHero().GetUsableItem(rawTarget);
                     return new UseCommand(usableItem, entityManager.GetHero());
+                case "equip":
+                    var equippableItem = entityManager.GetHero().GetEquippableItem(rawTarget);
+                    return new EquipCommand(entityManager.GetHero(), equippableItem);
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
