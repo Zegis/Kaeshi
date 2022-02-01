@@ -4,7 +4,7 @@ using System;
 
 namespace Kaeshi.Commands
 {
-    class EquipCommand : ICommand
+    public class EquipCommand : ICommand
     {
         private readonly IEquipment _equipment;
         private readonly EquippableItem _itemToEquip;
