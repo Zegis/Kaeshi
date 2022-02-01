@@ -2,7 +2,7 @@
 
 namespace Kaeshi.Interfaces
 {
-    interface IEquipment
+    public interface IEquipment
     {
         void Equip(EquippableItem item, EquippableType type);
         void Unequip(EquippableType type);
