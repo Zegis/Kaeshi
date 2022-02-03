@@ -7,7 +7,7 @@ namespace Kaeshi.Commands
     {
         public GameState Execute()
         {
-            throw new System.NotImplementedException();
+            return GameState.Play;
         }
     }
 }
