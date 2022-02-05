@@ -1,5 +1,6 @@
 ﻿using Kaeshi.Entity;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Kaeshi.Tests
 {
@@ -40,6 +41,19 @@ namespace Kaeshi.Tests
             sut.Equip(item, EquippableType.Armor);
 
             Assert.IsNull(sut.GetEquippableItem(item.Name));
+        }
+
+        [Test]
+        public void UnequipCleansEquipmentSlot()
+        {
+            var sut = new Character(1, 1, 1);
+            var item = new EquippableItem("foo", "bar", 0, EquippableType.Armor);
+
+            sut.Equipment.Add(EquippableType.Armor, item);
+
+            sut.Unequip(EquippableType.Armor);
+
+            Assert.Throws<KeyNotFoundException>( () => item = sut.Equipment[EquippableType.Armor]);
         }
     }
 }
