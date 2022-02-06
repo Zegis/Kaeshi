@@ -139,7 +139,7 @@ namespace Kaeshi.Tests
         public void UnEquipIsValidCommand()
         {
             var expected = typeof(UnequipCommand);
-            var command = parser.Parse("unequip");
+            var command = parser.Parse("unequip Armor");
             Assert.AreEqual(expected, command.GetType());
         }
     }
