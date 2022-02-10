@@ -17,8 +17,6 @@ namespace Kaeshi.Entity
 
         public Dictionary<EquippableType,EquippableItem> Equipment { get; private set; }
 
-        private int Defence { get { return _dexterity; } }
-
         public Character(int strength, int dexterity, int maxLife)
         {
             _strength = strength;
@@ -106,13 +104,25 @@ namespace Kaeshi.Entity
             return _dexterity;
         }
 
-        public int GetDamage()
+        public int Damage()
         {
             int damage = _strength;
             if(Equipment.TryGetValue(EquippableType.Weapon, out var weapon))
                 damage += weapon.modificator;
 
             return damage;
+        }
+
+        public int Defence
+        {
+            get
+            {
+                int defence = _dexterity;
+                if (Equipment.TryGetValue(EquippableType.Armor, out var armor))
+                    defence += armor.modificator;
+
+                return defence;
+            }
         }
 
         public bool IsHit(int hitValue)

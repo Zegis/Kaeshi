@@ -49,7 +49,7 @@ namespace Kaeshi.Commands
             var hitValue = Dice.Throw(attacker.GetHitValue());
             if (target.IsHit(hitValue))
             {
-                target.Injure(attacker.GetDamage());
+                target.Injure(attacker.Damage());
             }
         }
     }
