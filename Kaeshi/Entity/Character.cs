@@ -8,8 +8,8 @@ namespace Kaeshi.Entity
 {
     public class Character : IVisible, IBattler, IBackpack, IEquipment
     {
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
+        private int _strength { get; set; }
+        private int _dexterity { get; set; }
         private int _life { get; set; }
         public bool _isAlive { get; private set; }
 
@@ -17,12 +17,12 @@ namespace Kaeshi.Entity
 
         public Dictionary<EquippableType,EquippableItem> Equipment { get; private set; }
 
-        private int Defence { get { return Dexterity; } }
+        private int Defence { get { return _dexterity; } }
 
         public Character(int strength, int dexterity, int maxLife)
         {
-            Strength = strength;
-            Dexterity = dexterity;
+            _strength = strength;
+            _dexterity = dexterity;
             _life = maxLife;
             _isAlive = true;
 
@@ -103,12 +103,12 @@ namespace Kaeshi.Entity
 
         public int GetHitValue()
         {
-            return Dexterity;
+            return _dexterity;
         }
 
         public int GetDamage()
         {
-            return Strength;
+            return _strength;
         }
 
         public bool IsHit(int hitValue)
@@ -132,8 +132,8 @@ namespace Kaeshi.Entity
             if (_isAlive)
             {
 
-                description.AppendLine($"Strength: {this.Strength}");
-                description.AppendLine($"Dexterity: {this.Dexterity}");
+                description.AppendLine($"Strength: {this._strength}");
+                description.AppendLine($"Dexterity: {this._dexterity}");
                 description.AppendLine($"Life: {this._life}");
 
                 description.AppendLine($"\nYou have {this.Backpack.Count} item(s) in backpack");
