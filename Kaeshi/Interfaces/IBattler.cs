@@ -1,4 +1,7 @@
-﻿namespace Kaeshi.Interfaces
+﻿using Kaeshi.Entity;
+using System.Collections.Generic;
+
+namespace Kaeshi.Interfaces
 {
     public partial interface IBattler
     {
@@ -11,5 +14,7 @@
         int GetHitValue();
 
         int Damage();
+
+        IEnumerable<Item> DropItems();
     }
 }

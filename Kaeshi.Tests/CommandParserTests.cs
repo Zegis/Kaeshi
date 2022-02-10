@@ -14,8 +14,12 @@ namespace Kaeshi.Tests
         [SetUp]
         public void Setup()
         {
+            var map = new Mock<Map>();
+            var currentLocation = new Mock<Location>("foo", "bar");
+            map.Setup(x => x.GetCurrentLocation()).Returns(currentLocation.Object);
             var entityManager = new Mock<IEntityManager>();
             entityManager.Setup(x => x.GetHero()).Returns(new Character(1,1,10));
+            entityManager.Setup(x => x.GetMap()).Returns(map.Object);
             parser = new CommandParser(entityManager.Object);
         }
 

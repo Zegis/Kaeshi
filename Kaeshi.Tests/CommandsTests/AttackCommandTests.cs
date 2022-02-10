@@ -17,8 +17,9 @@ namespace Kaeshi.Tests.CommandsTests
             hero.Setup(h => h.IsAlive()).Returns(true);
             var enemy = new Mock<IBattler>();
             enemy.Setup(e => e.IsAlive()).Returns(true);
+            var location = new Mock<Location>("foo", "bar");
 
-            ICommand command = new AttackCommand(hero.Object, enemy.Object);
+            ICommand command = new AttackCommand(hero.Object, enemy.Object,location.Object);
 
             var result = command.Execute();
 
@@ -34,8 +35,9 @@ namespace Kaeshi.Tests.CommandsTests
             hero.Setup(h => h.IsAlive()).Returns(false);
             var enemy = new Mock<IBattler>();
             enemy.Setup(e => e.IsAlive()).Returns(true);
+            var location = new Mock<Location>("foo","bar");
 
-            ICommand command = new AttackCommand(hero.Object, enemy.Object);
+            ICommand command = new AttackCommand(hero.Object, enemy.Object, location.Object);
 
             var result = command.Execute();
 

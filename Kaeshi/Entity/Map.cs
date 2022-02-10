@@ -34,7 +34,7 @@ namespace Kaeshi.Entity
             return locations;
         }
 
-        public Location GetCurrentLocation()
+        public virtual Location GetCurrentLocation()
         {
             return current;
         }
