@@ -108,7 +108,11 @@ namespace Kaeshi.Entity
 
         public int GetDamage()
         {
-            return _strength;
+            int damage = _strength;
+            if(Equipment.TryGetValue(EquippableType.Weapon, out var weapon))
+                damage += weapon.modificator;
+
+            return damage;
         }
 
         public bool IsHit(int hitValue)
