@@ -10,6 +10,6 @@
 
         int GetHitValue();
 
-        int GetDamage();
+        int Damage();
     }
 }

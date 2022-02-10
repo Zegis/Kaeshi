@@ -78,11 +78,25 @@ namespace Kaeshi.Tests
             var sut = new Character(1, 1, 1);
             var item = new EquippableItem("foo", "bar", 1, EquippableType.Weapon);
 
-            Assert.AreEqual(1, sut.GetDamage());
+            Assert.AreEqual(1, sut.Damage());
 
             sut.Equip(item, EquippableType.Weapon);
 
-            Assert.AreEqual(2, sut.GetDamage());
+            Assert.AreEqual(2, sut.Damage());
+
+        }
+
+        [Test]
+        public void ArmorGiveDefenceBonus()
+        {
+            var sut = new Character(1, 1, 1);
+            var item = new EquippableItem("foo", "bar", 1, EquippableType.Armor);
+
+            Assert.AreEqual(1, sut.Defence);
+
+            sut.Equip(item, EquippableType.Armor);
+
+            Assert.AreEqual(2, sut.Defence);
 
         }
     }
