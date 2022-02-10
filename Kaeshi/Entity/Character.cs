@@ -196,5 +196,19 @@ namespace Kaeshi.Entity
 
             Console.Write($"You don't have {type} equipped");
         }
+
+        public IEnumerable<Item> DropItems()
+        {
+            if (_isAlive)
+                return null;
+
+            foreach(var item in Equipment.Values)
+            {
+                this.Unequip(item.type);
+            }
+
+            return Backpack;
+
+        }
     }
 }

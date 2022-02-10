@@ -48,7 +48,7 @@ namespace Kaeshi.Modules
                     return new TakeCommand(entityManager.GetHero(), item);
                 case "attack":
                     var npc = entityManager.GetTargetableObject(rawTarget);
-                    return new AttackCommand(entityManager.GetHero(),npc);
+                    return new AttackCommand(entityManager.GetHero(),npc,entityManager.GetMap().GetCurrentLocation());
                 case "open":
                     return new OpenInventoryCommand(entityManager.GetHero());
                 case "use":

@@ -9,12 +9,14 @@ namespace Kaeshi.Commands
     {
         IBattler _enemy;
         IBattler _hero;
+        Location _battleground;
 
 
-        public AttackCommand(IBattler hero ,IBattler enemy)
+        public AttackCommand(IBattler hero ,IBattler enemy, Location battleground)
         {
             _hero = hero;
             _enemy = enemy;
+            _battleground = battleground;
         }
 
         public GameState Execute()
@@ -27,8 +29,14 @@ namespace Kaeshi.Commands
 
             PerformAttack(_hero,_enemy);
 
-            if(!_enemy.IsAlive())
+            if (!_enemy.IsAlive())
+            {
+                foreach(var item in _enemy.DropItems())
+                {
+                    _battleground.AddItem(item.Name, item);
+                }
                 return GameState.Play;
+            }
 
             PerformAttack(_enemy, _hero);
 
