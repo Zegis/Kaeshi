@@ -37,6 +37,9 @@ namespace Kaeshi.Entity
 
         public string DisplayBackpack()
         {
+            if (Backpack.Count == 0)
+                return "You have no items in backpack...";
+
             var backpackView = new StringBuilder();
             foreach(Item i in Backpack)
             {
