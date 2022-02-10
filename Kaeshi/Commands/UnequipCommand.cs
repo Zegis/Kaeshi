@@ -11,6 +11,7 @@ namespace Kaeshi.Commands
         public UnequipCommand(IEquipment equipment, EquippableType slotToUnequip)
         {
             _equipment = equipment;
+            _slot = slotToUnequip;
         }
 
         public GameState Execute()

@@ -158,7 +158,13 @@ namespace Kaeshi.Entity
         {
             Equipment.Remove(type, out var item);
             if (item != null)
+            {
                 Backpack.Add(item);
+                Console.Write($"Unequipped {item.Name} from {type}");
+                return;
+            }
+
+            Console.Write($"You don't have {type} equipped");
         }
     }
 }

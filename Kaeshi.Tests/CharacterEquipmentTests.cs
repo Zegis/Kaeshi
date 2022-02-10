@@ -55,5 +55,21 @@ namespace Kaeshi.Tests
 
             Assert.Throws<KeyNotFoundException>( () => item = sut.Equipment[EquippableType.Armor]);
         }
+
+        [Test]
+        public void UnequipAddsItemToBackpack()
+        {
+            var sut = new Character(1, 1, 1);
+            var item = new EquippableItem("foo", "bar", 0, EquippableType.Armor);
+
+            sut.Equipment.Add(EquippableType.Armor, item);
+
+            Assert.AreEqual(0, sut.Backpack.Count);
+
+            sut.Unequip(EquippableType.Armor);
+
+            Assert.AreEqual(1, sut.Backpack.Count);
+            Assert.AreEqual(item.Description, sut.GetEquippableItem("foo").Description);
+        }
     }
 }
