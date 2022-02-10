@@ -137,6 +137,19 @@ namespace Kaeshi.Entity
                 description.AppendLine($"Life: {this._life}");
 
                 description.AppendLine($"\nYou have {this.Backpack.Count} item(s) in backpack");
+
+                if (Equipment.Count == 0)
+                {
+                    description.AppendLine("\nYou wear nothing...");
+                }
+                else
+                {
+                    description.AppendLine($"\nYou wear:");
+                    foreach (var slot in Equipment)
+                    {
+                        description.AppendLine($"{slot.Key}: {slot.Value.Name}");
+                    }
+                }
             }
             else
             {
