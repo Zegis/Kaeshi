@@ -86,7 +86,7 @@ namespace Kaeshi.Entity
         {
             Console.Write("Direct hit!");
             _life -= damage;
-            if (_life == 0)
+            if (_life <= 0)
             {
                 Console.Write("Death");
                 _isAlive = false;
