@@ -23,6 +23,9 @@ namespace Kaeshi.Entity
             current = locations["root"];
             current.SetLink(Direction.North, locations["north1"]);
 
+            var dummy = new Character(1, 1, 1);
+            dummy.PutInBackpack(new Item("Dummy pieces", "Pieces of wooden dummy"));
+
             locations["north1"].SetLink(Direction.South, locations["root"]);
             locations["north1"].AddNpc("MiB", CharacterFactory.Generate());
             locations["north1"].AddNpc("MiB2", CharacterFactory.Generate());
@@ -30,6 +33,7 @@ namespace Kaeshi.Entity
             locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
             locations["root"].AddItem("AidKit", new UsableItem("AidKit","First aid kit, heals small amount of health",2, EffectsLibrary.Get("heal")));
             locations["root"].AddItem("Armor", new EquippableItem("Armor", "Standard buletproof vest", 2, EquippableType.Armor));
+            locations["root"].AddNpc("Dummy", dummy);
 
             return locations;
         }
