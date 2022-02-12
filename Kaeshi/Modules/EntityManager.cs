@@ -6,14 +6,8 @@ namespace Kaeshi.Modules
 {
     public class EntityManager : IEntityManager
     {
-        private Dictionary<string, IVisible> visibleObjects = new Dictionary<string, IVisible>();
         private Map level;
         private Character hero;
-
-        public void AddVisibleObject(string key, IVisible visibleObject)
-        {
-            visibleObjects.TryAdd(key, visibleObject);
-        }
 
         public IVisible GetVisibleObject(string key)
         {

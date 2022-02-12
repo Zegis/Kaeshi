@@ -2,7 +2,7 @@
 
 namespace Kaeshi.Modules
 {
-    public class CharacterFactory
+    public static class CharacterFactory
     {
         static public Character Generate()
         {

@@ -1,22 +1,16 @@
 ﻿using Kaeshi.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Kaeshi.Modules
 {
     public static class EffectsLibrary
     {
-        static readonly private Dictionary<string, Action<IBattler>> _effects;
-
-        static EffectsLibrary()
+        static readonly private Dictionary<string, Action<IBattler>> _effects = new Dictionary<string, Action<IBattler>>
         {
-            _effects = new Dictionary<string, Action<IBattler>>
-            {
-                ["heal"] = (a) => a.Heal(2),
-                ["damage"] = (a) => a.Injure(2)
-            };
-        }
+            ["heal"] = (a) => a.Heal(2),
+            ["damage"] = (a) => a.Injure(2)
+        };
 
         static public Action<IBattler> Get(string effectName)
         {

@@ -7,9 +7,9 @@ namespace Kaeshi.Commands
 {
     public class AttackCommand : ICommand
     {
-        IBattler _enemy;
-        IBattler _hero;
-        Location _battleground;
+        private readonly IBattler _enemy;
+        private readonly IBattler _hero;
+        private readonly Location _battleground;
 
 
         public AttackCommand(IBattler hero ,IBattler enemy, Location battleground)

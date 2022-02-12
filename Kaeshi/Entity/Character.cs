@@ -200,7 +200,7 @@ namespace Kaeshi.Entity
         public IEnumerable<Item> DropItems()
         {
             if (_isAlive)
-                return null;
+                return Enumerable.Empty<Item>();
 
             foreach(var item in Equipment.Values)
             {
