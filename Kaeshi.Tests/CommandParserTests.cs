@@ -96,6 +96,16 @@ namespace Kaeshi.Tests
         }
 
         [Test]
+        public void TakeIsValidCommand()
+        {
+            var expected = typeof(TakeCommand);
+
+            var command = parser.Parse("take");
+
+            Assert.AreEqual(expected, command.GetType());
+        }
+
+        [Test]
         public void AttackIsValidCommands()
         {
             var expected = typeof(AttackCommand);
