@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kaeshi.Modules
 {
-    public class Dice
+    public static class Dice
     {
         private static Random rng = new Random();
 

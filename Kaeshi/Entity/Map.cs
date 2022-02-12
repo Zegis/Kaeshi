@@ -14,7 +14,7 @@ namespace Kaeshi.Entity
             LoadLocations();
         }
 
-        private Dictionary<string, Location> LoadLocations()
+        private void LoadLocations()
         {
             var locations = new Dictionary<string, Location>();
             locations.Add("root", new Location("You see a root.", "Root is still there..."));
@@ -34,8 +34,6 @@ namespace Kaeshi.Entity
             locations["root"].AddItem("AidKit", new UsableItem("AidKit","First aid kit, heals small amount of health",2, EffectsLibrary.Get("heal")));
             locations["root"].AddItem("Armor", new EquippableItem("Armor", "Standard buletproof vest", 2, EquippableType.Armor));
             locations["root"].AddNpc("Dummy", dummy);
-
-            return locations;
         }
 
         public virtual Location GetCurrentLocation()

@@ -6,8 +6,8 @@ namespace Kaeshi.Commands
 {
     public class UseCommand : ICommand
     {
-        IBattler _target;
-        UsableItem _item;
+        private readonly IBattler _target;
+        private readonly UsableItem _item;
 
         public UseCommand(UsableItem itemToUse,IBattler target)
         {

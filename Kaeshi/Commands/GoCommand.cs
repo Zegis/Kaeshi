@@ -5,8 +5,8 @@ namespace Kaeshi.Commands
 {
     public class GoCommand : ICommand
     {
-        private IMap level;
-        private Direction moveDirection;
+        private readonly IMap level;
+        private readonly Direction moveDirection;
         public GoCommand(IMap lvl, Direction moveDir)
         {
             level = lvl;

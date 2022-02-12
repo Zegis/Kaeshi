@@ -4,7 +4,7 @@ using System;
 
 namespace Kaeshi
 {
-    class Kaeshi
+    public static class Kaeshi
     {
         static void Main(string[] args)
         {
