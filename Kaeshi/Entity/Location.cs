@@ -79,7 +79,7 @@ namespace Kaeshi.Entity
             npcs[NpcName] = NpcToAdd;
         }
 
-        public void AddItem(string itemName, Item itemToAdd)
+        public virtual void AddItem(string itemName, Item itemToAdd)
         {
             items[itemName] = itemToAdd;
         }
