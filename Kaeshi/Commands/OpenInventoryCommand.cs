@@ -6,9 +6,9 @@ namespace Kaeshi.Commands
 {
     public class OpenInventoryCommand : ICommand
     {
-        private readonly Character _player;
+        private readonly IBackpack _player;
 
-        public OpenInventoryCommand(Character player)
+        public OpenInventoryCommand(IBackpack player)
         {
             _player = player;
         }
