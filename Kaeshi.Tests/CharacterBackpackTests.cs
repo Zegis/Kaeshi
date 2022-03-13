@@ -1,5 +1,6 @@
 ﻿using Kaeshi.Entity;
 using NUnit.Framework;
+using System.Text;
 
 namespace Kaeshi.Tests
 {
@@ -56,7 +57,20 @@ namespace Kaeshi.Tests
 
             var display = chara.DisplayBackpack();
 
+            var expectedDisplay = new StringBuilder().AppendLine(item.Observe()).ToString();
+
             Assert.IsFalse(string.IsNullOrWhiteSpace(display));
+            Assert.AreEqual(expectedDisplay, display);
+        }
+
+        [Test]
+        public void EmptyCharacterBackpackIsDisplayingProperly()
+        {
+            chara = new Character(4, 5, 20);
+
+            var display = chara.DisplayBackpack();
+
+            Assert.AreEqual("You have no items in backpack...", display);
         }
 
         [Test]
