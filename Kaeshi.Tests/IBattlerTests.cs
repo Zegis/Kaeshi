@@ -58,5 +58,35 @@ namespace Kaeshi.Tests
             Assert.IsFalse(sut.Observe().Contains(notExpectedLifeDescription));
         }
 
+        [Test]
+        public void isHitReturnsTrueForValuesAboveDefence()
+        {
+            var sut = new Character(1, 2, 1);
+
+            var result = sut.IsHit(3);
+
+            Assert.IsTrue(result);
+        }
+        
+        [Test]
+        public void isHitReturnsTrueForValuesEqualTodefence()
+        {
+            var sut = new Character(1, 2, 1);
+
+            var result = sut.IsHit(2);
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void isHitReturnsFalseForValuesBelowDefence()
+        {
+            var sut = new Character(1, 2, 1);
+
+            var result = sut.IsHit(1);
+
+            Assert.IsFalse(result);
+        }
+
     }
 }
