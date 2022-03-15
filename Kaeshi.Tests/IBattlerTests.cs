@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Kaeshi.Tests
@@ -86,6 +87,81 @@ namespace Kaeshi.Tests
             var result = sut.IsHit(1);
 
             Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void DropItemsReturnsNoItemsWhenAliveAndNoItems()
+        {
+            var sut = new Character(1, 1, 1);
+
+            var expected = Enumerable.Empty<Item>();
+
+            var result = sut.DropItems();
+
+            Assert.IsTrue(sut.IsAlive());
+            Assert.AreEqual(expected, result);
+            Assert.AreEqual(0, result.Count());
+        }
+        
+
+        [Test]
+        public void DropItemsReturnsNoItemsWhenAliveAndWithItems()
+        {
+            var sut = new Character(1, 1, 1);
+
+            var exampleItem = new Item("Foo", "bar");
+            var exampleUsableItem = new UsableItem("Foo", "bar", 1, (a) => a.Heal(2));
+
+            var expectedResult = Enumerable.Empty<Item>();
+
+            sut.PutInBackpack(exampleItem);
+            sut.PutInBackpack(exampleUsableItem);
+
+            var result = sut.DropItems();
+
+            Assert.IsTrue(sut.IsAlive());
+            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult.Count(), result.Count());
+        }
+
+        [Test]
+        public void DropItemsReturnsNoItemsWhenDeadAndNoItems()
+        {
+            var sut = new Character(1, 1, 1);
+
+            var expected = Enumerable.Empty<Item>();
+
+            sut.Injure(2);
+
+            var result = sut.DropItems();
+
+            Assert.IsFalse(sut.IsAlive());
+            Assert.AreEqual(expected, result);
+            Assert.AreEqual(0, result.Count());
+        }
+
+
+        [Test]
+        public void DropItemsReturnsAllItemsWhenDeadAndWithItems()
+        {
+            var sut = new Character(1, 1, 1);
+
+            var exampleItem = new Item("Foo", "bar");
+            var exampleUsableItem = new UsableItem("Foo", "bar", 1, (a) => a.Heal(2));
+
+            var expectedResult = new List<Item>() {
+                exampleItem, exampleUsableItem
+            };
+
+            sut.PutInBackpack(exampleItem);
+            sut.PutInBackpack(exampleUsableItem);
+
+            sut.Injure(2);
+            var result = sut.DropItems();
+
+            Assert.IsFalse(sut.IsAlive());
+            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult.Count, result.Count());
         }
 
     }
