@@ -32,7 +32,31 @@ namespace Kaeshi.Tests
             Assert.AreEqual(expectedDescription, sut.Observe());
         }
 
-        
-        
+        [Test]
+        public void HealIncreaseLife()
+        {
+            var sut = new Character(0, 0, 1);
+
+            var expectedLifeDescription = "Life: 5";
+
+            sut.Heal(4);
+
+            Assert.IsTrue(sut.IsAlive());
+            Assert.IsTrue(sut.Observe().Contains(expectedLifeDescription));
+        }
+
+        [Test]
+        public void HealWontWorkOnDead()
+        {
+            var sut = new Character(0, 0, 1);
+            var notExpectedLifeDescription = "Life: 11";
+            sut.Injure(1);
+
+            sut.Heal(10);
+
+            Assert.IsFalse(sut.IsAlive());
+            Assert.IsFalse(sut.Observe().Contains(notExpectedLifeDescription));
+        }
+
     }
 }
