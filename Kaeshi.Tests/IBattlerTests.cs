@@ -26,7 +26,7 @@ namespace Kaeshi.Tests
         {
             var sut = new Character(0, 0, 10);
 
-            var expectedDescription = "Dead body\r\n";
+            var expectedDescription = "Dead body" + Environment.NewLine;
 
             sut.Injure(10);
             Assert.IsFalse(sut.IsAlive());
