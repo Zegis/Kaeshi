@@ -17,23 +17,45 @@ namespace Kaeshi.Entity
         private void LoadLocations()
         {
             var locations = new Dictionary<string, Location>();
-            locations.Add("root", new Location("You see a root.", "Root is still there..."));
-            locations.Add("north1", new Location("This is north location", "Is still on north"));
+            locations.Add("entry", new Location("You see a root.", "Root is still there..."));
+            locations.Add("toilets_1", new Location("", ""));
+            locations.Add("corridor_1", new Location("", ""));
+            locations.Add("dining_1", new Location("", ""));
+            locations.Add("dining_2", new Location("", ""));
+            locations.Add("corridor_2", new Location("", ""));
+            locations.Add("corridor_3", new Location("", ""));
+            locations.Add("corridor_4", new Location("", ""));
+            locations.Add("meeting_1", new Location("", ""));
+            locations.Add("elevators", new Location("", ""));
 
-            current = locations["root"];
-            current.SetLink(Direction.North, locations["north1"]);
+            current = locations["entry"];
+            locations["entry"].SetLink(Direction.South, locations["corridor_1"]);
 
-            var dummy = new Character(1, 1, 1);
-            dummy.PutInBackpack(new Item("Dummy pieces", "Pieces of wooden dummy"));
+            locations["corridor_1"].SetLink(Direction.North, locations["entry"]);
+            locations["corridor_1"].SetLink(Direction.West, locations["toilets_1"]);
+            locations["corridor_1"].SetLink(Direction.East, locations["dining_1"]);
+            locations["corridor_1"].SetLink(Direction.South, locations["corridor_2"]);
 
-            locations["north1"].SetLink(Direction.South, locations["root"]);
-            locations["north1"].AddNpc("MiB", CharacterFactory.Generate());
-            locations["north1"].AddNpc("MiB2", CharacterFactory.Generate());
+            locations["toilets_1"].SetLink(Direction.East, locations["corridor_1"]);
 
-            locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
-            locations["root"].AddItem("AidKit", new UsableItem("AidKit","First aid kit, heals small amount of health",2, EffectsLibrary.Get("heal")));
-            locations["root"].AddItem("Armor", new EquippableItem("Armor", "Standard buletproof vest", 2, EquippableType.Armor));
-            locations["root"].AddNpc("Dummy", dummy);
+            locations["dining_1"].SetLink(Direction.West, locations["corridor_1"]);
+            locations["dining_1"].SetLink(Direction.South, locations["dining_2"]);
+
+            locations["dining_2"].SetLink(Direction.North, locations["dining_1"]);
+            locations["dining_2"].SetLink(Direction.East, locations["corridor_2"]);
+
+            locations["corridor_2"].SetLink(Direction.North, locations["corridor_1"]);
+            locations["corridor_2"].SetLink(Direction.West, locations["dining_2"]);
+            locations["corridor_2"].SetLink(Direction.South, locations["meeting_1"]);
+            locations["corridor_2"].SetLink(Direction.East, locations["corridor_3"]);
+
+            locations["meeting_1"].SetLink(Direction.North, locations["corridor_2"]);
+
+            locations["corridor_3"].SetLink(Direction.West, locations["corridor_2"]);
+            locations["corridor_3"].SetLink(Direction.South, locations["corridor_4"]);
+
+            locations["corridor_4"].SetLink(Direction.North, locations["corridor_3"]);
+            locations["corridor_4"].SetLink(Direction.South, locations["elevators"]);
         }
 
         public virtual Location GetCurrentLocation()
