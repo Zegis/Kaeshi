@@ -38,6 +38,13 @@ namespace Kaeshi
                 Console.WriteLine("You lost :(");
                 Console.ReadKey();
             }
+
+            if(game == GameState.Win)
+            {
+                Console.WriteLine();
+                Console.WriteLine("You won! Congratulations!");
+                Console.ReadKey();
+            }
         }
     }
 }

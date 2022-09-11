@@ -10,6 +10,8 @@ namespace Kaeshi.Entity
     {
         public bool visited { get; set; }
 
+        public bool final { get; set; }
+
         private readonly string primaryDescription;
 
         private readonly string secondaryDescription;
@@ -28,6 +30,7 @@ namespace Kaeshi.Entity
             primaryDescription = firstDescription;
             secondaryDescription = secondDescription;
             visited = false;
+            final = false;
         }
 
         internal IVisible ObserveItem(string itemKey)
