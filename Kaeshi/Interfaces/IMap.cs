@@ -5,6 +5,6 @@ namespace Kaeshi.Interfaces
     public interface IMap
     {
         Location GetCurrentLocation();
-        void Go(Direction direction);
+        bool Go(Direction direction);
     }
 }

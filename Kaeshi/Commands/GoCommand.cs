@@ -15,7 +15,8 @@ namespace Kaeshi.Commands
 
         public GameState Execute()
         {
-            level.Go(moveDirection);
+            if (level.Go(moveDirection))
+                return GameState.Win;
 
             return GameState.Play;
         }

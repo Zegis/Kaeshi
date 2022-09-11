@@ -56,6 +56,9 @@ namespace Kaeshi.Entity
 
             locations["corridor_4"].SetLink(Direction.North, locations["corridor_3"]);
             locations["corridor_4"].SetLink(Direction.South, locations["elevators"]);
+
+            locations["elevators"].SetLink(Direction.North, locations["corridor_4"]);
+            locations["elevators"].final = true;
         }
 
         public virtual Location GetCurrentLocation()
@@ -63,7 +66,7 @@ namespace Kaeshi.Entity
             return current;
         }
 
-        public void Go(Direction direction)
+        public bool Go(Direction direction)
         {
             var newLocation = current.GetLink(direction);
             if (newLocation != null)
@@ -76,6 +79,8 @@ namespace Kaeshi.Entity
             {
                 Console.Write("Path is blocked...");
             }
+
+            return current.final;
         }
     }
 }
