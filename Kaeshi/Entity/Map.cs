@@ -42,12 +42,12 @@ namespace Kaeshi.Entity
             locations["dining_1"].SetLink(Direction.South, locations["dining_2"]);
 
             locations["dining_2"].SetLink(Direction.North, locations["dining_1"]);
-            locations["dining_2"].SetLink(Direction.East, locations["corridor_2"]);
+            locations["dining_2"].SetLink(Direction.West, locations["corridor_2"]);
 
             locations["corridor_2"].SetLink(Direction.North, locations["corridor_1"]);
-            locations["corridor_2"].SetLink(Direction.West, locations["dining_2"]);
+            locations["corridor_2"].SetLink(Direction.East, locations["dining_2"]);
             locations["corridor_2"].SetLink(Direction.South, locations["meeting_1"]);
-            locations["corridor_2"].SetLink(Direction.East, locations["corridor_3"]);
+            locations["corridor_2"].SetLink(Direction.West, locations["corridor_3"]);
 
             locations["meeting_1"].SetLink(Direction.North, locations["corridor_2"]);
 
