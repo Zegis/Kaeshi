@@ -51,7 +51,7 @@ namespace Kaeshi.Entity
 
             locations["meeting_1"].SetLink(Direction.North, locations["corridor_2"]);
 
-            locations["corridor_3"].SetLink(Direction.West, locations["corridor_2"]);
+            locations["corridor_3"].SetLink(Direction.East, locations["corridor_2"]);
             locations["corridor_3"].SetLink(Direction.South, locations["corridor_4"]);
 
             locations["corridor_4"].SetLink(Direction.North, locations["corridor_3"]);
