@@ -1,0 +1,70 @@
+Entry
+You entered the building through revolving glass door. You're in the lobby. 
+On the right there is receptionist, he don't pay attention to you. 
+You can go South passing the security gates to enter a long corridor.
+
+Lobby didn't change much since your last visit. Maybe the receptionist is looking more bored than before.
+You sigh, you know you can't left the building without finishing the mission.
+Only way is South deeper into the building.
+
+Toilets_1
+
+Corridor_1
+You passed the security gates, walked a few steps looking at company motivational posters. You stopped at pair of doors.
+If you go North you'll go back to the entrance.
+You look to the West and see doors with a pictogram of a person. Looks like enterance to lavatory.
+On the oposite East wall there is yet another door made of glass. You can see tables and chairs and some people eating.
+You can continue moving South along the corridor.
+
+You returned to the crossroads decorated with motivational posters.
+If you turn back South you'll return deeper into the building.
+To the East there's a dining room.
+Opposite, on the West wall you see lavatory door.
+Keep going North if you want to left the building.
+
+Dining_1
+
+Dining_2
+
+Corridor_2
+Another dozen of steps, and another set of doors. One of walls is made of glass, and you can see a kitchen through it.
+Corridor turns West.
+Before your eyes on South wall there's a set of large wooden doors with "Plains" sign on it. Perhaps a meeting room?
+The glass wall to your East contain a door to the kitchen area.
+To the North you see familiar corridor crossroads with lavatory and dining.
+
+It's the good old corridor turning. On the wall there's a photo of smilling employee with some motivational motto about being part of one big family.
+There's meeting room "Plains' to the South.
+Glass door on the East side leading to the kitchen.
+Going North you'll go back to dining - lavatory crossroads.
+West is corridor leading to the elevators.
+
+Corridor_3
+
+Yet another turn. It's quite calming after two crossroads. 
+To the south you see corridor leading to the elevators.
+You can turn East to return to the corridor crossroads. Further along you see glass, kitchen doors
+
+Plain turning. Nothing to see here besides some motivational posters.
+To the south there's part of corridor leading to the elevators.
+You can turn East to return to kitchen - meeting room crossroads.
+
+Corridor_4
+
+Straight corridor with some potted plants, you can see the Elevators at the end. Finally.
+You can see elevators further to the South.
+To the North there's a plain turn with motivational posters.
+
+Corridor with some plants.
+You can see elevators further to the South.
+To the North there's a plain turn with motivational posters.
+
+Meeting_1
+
+Elevators
+Set of 3 elevators, one of them is visibly larger, probably for making deliveries with office supplies.
+There's a card reader next to each elevator. Looks like you can't use any without security key.
+You can go back North to the long corridor leading to various places on this floor.
+
+Still the same 3 elevators, with card readers.
+To the North is a long corridor you can take to reach rest of the floor.
