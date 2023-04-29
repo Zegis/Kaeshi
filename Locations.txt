@@ -9,6 +9,13 @@ Only way is South deeper into the building.
 
 Toilets_1
 
+A small lavatory with single cabin, and sink with mirror hanging above. 
+Next to the mirror is poster reminding how to properly wash hands.
+On East wall there is corridor door.
+
+Small lavatory. You can see someone used it recently. It doesn't smell good here.
+On East wall there's a door leading to the corridor.
+
 Corridor_1
 You passed the security gates, walked a few steps looking at company motivational posters. You stopped at pair of doors.
 If you go North you'll go back to the entrance.
@@ -24,7 +31,23 @@ Keep going North if you want to left the building.
 
 Dining_1
 
+Main area of Dining room with a lot of tables, and small water dispenser. It's crowded with people minding their own businesses.
+South is a kitchen area.
+West you can see the corridor through glass door.
+
+Dining room with tables. Seems like there's no one here, just a water dispenser and a lot of tables.
+South is kitchen area.
+West are doors leading to the corridor.
+
 Dining_2
+Kitchen area of the dining room. There's refigerator, coffie express and pair of microwaves. 
+It smells nice, as if someone just finished warming something good.
+If you go North you'll reach the main part of dining room.
+To the West past glass door there's a corridor.
+
+Kitchen area of the dining room. There's a plate heating up in microwave next to the refigerator.
+North is main part of dining room.
+On West wall there is a glass door leading to corridor.
 
 Corridor_2
 Another dozen of steps, and another set of doors. One of walls is made of glass, and you can see a kitchen through it.
@@ -60,6 +83,12 @@ You can see elevators further to the South.
 To the North there's a plain turn with motivational posters.
 
 Meeting_1
+
+A small office with single table and two chairs. Looks like a room designated for one to one meetings between employees.
+There's only one exit on the North wall.
+
+An one on one meeting room, with table and set of chairs. They doesn't look comfortable.
+Going North you'll go back to the corridor.
 
 Elevators
 Set of 3 elevators, one of them is visibly larger, probably for making deliveries with office supplies.
