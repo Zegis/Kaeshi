@@ -106,12 +106,18 @@ namespace Kaeshi.Entity
             locations["corridor_1"].SetLink(Direction.South, locations["corridor_2"]);
 
             locations["toilets_1"].SetLink(Direction.East, locations["corridor_1"]);
+            locations["toilets_1"].AddNpc("security_guard", CharacterFactory.Generate());
+            locations["toilets_1"].AddItem("AidKit", new UsableItem("AidKit", "First aid kit, heals small amount of health", 2, EffectsLibrary.Get("heal")));
+            locations["toilets_1"].AddItem("Token", new Item("Token", "Round token of some kind"));
 
             locations["dining_1"].SetLink(Direction.West, locations["corridor_1"]);
             locations["dining_1"].SetLink(Direction.South, locations["dining_2"]);
+            locations["dining_1"].AddNpc("security_guard", CharacterFactory.Generate());
+            locations["dining_1"].AddItem("Token", new Item("Token", "Round token of some kind"));
 
             locations["dining_2"].SetLink(Direction.North, locations["dining_1"]);
             locations["dining_2"].SetLink(Direction.West, locations["corridor_2"]);
+            locations["dining_2"].AddItem("AidKit", new UsableItem("AidKit", "First aid kit, heals small amount of health", 2, EffectsLibrary.Get("heal")));
 
             locations["corridor_2"].SetLink(Direction.North, locations["corridor_1"]);
             locations["corridor_2"].SetLink(Direction.East, locations["dining_2"]);
@@ -119,16 +125,23 @@ namespace Kaeshi.Entity
             locations["corridor_2"].SetLink(Direction.West, locations["corridor_3"]);
 
             locations["meeting_1"].SetLink(Direction.North, locations["corridor_2"]);
+            locations["meeting_1"].AddNpc("men_in_black", CharacterFactory.Generate());
+            locations["meeting_1"].AddItem("AidKit", new UsableItem("AidKit", "First aid kit, heals small amount of health", 2, EffectsLibrary.Get("heal")));
+            locations["meeting_1"].AddItem("Armor", new EquippableItem("Armor", "Standard buletproof vest", 2, EquippableType.Armor));
 
             locations["corridor_3"].SetLink(Direction.East, locations["corridor_2"]);
             locations["corridor_3"].SetLink(Direction.South, locations["corridor_4"]);
 
             locations["corridor_4"].SetLink(Direction.North, locations["corridor_3"]);
             locations["corridor_4"].SetLink(Direction.South, locations["elevators"]);
+            locations["corridor_4"].AddNpc("security_guard", CharacterFactory.Generate());
+            locations["corridor_4"].AddItem("Token", new Item("Token", "Round token of some kind"));
 
             locations["elevators"].SetLink(Direction.North, locations["corridor_4"]);
             locations["elevators"].final = true;
         }
+
+        //locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
 
         public virtual Location GetCurrentLocation()
         {
