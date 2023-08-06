@@ -1,0 +1,49 @@
+Elevator - E
+OpenSpace - O
+Toilet - T
+Meeting Room - M
+Office - F
+Stairs - S
+
+    E
+    |
+  T1-O1-O2-M
+      |  |
+  O5-O4-O3-T2
+  |   |
+  S   F
+
+
+  E:
+  Token
+
+  T1:
+  FirstAid
+
+  T2:
+  FirstAid; Token
+  
+  O1:
+    Security Guard
+
+  O2:
+
+  O3:
+    Security Guard
+  Token;
+
+  04:
+
+  05:
+
+  M:
+    Security Guard;
+  Token;
+
+  F:
+    Mercenary;
+  CellKey; Model 36;
+
+  S:
+    Men in Black;
+  Token;
