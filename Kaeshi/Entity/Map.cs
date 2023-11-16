@@ -8,10 +8,13 @@ namespace Kaeshi.Entity
     public class Map : IMap
     {
         private Location current;
+        private short currentLevel;
+        private static short maxLevel = 3;
 
         public Map()
         {
             LoadLocations();
+            currentLevel = 1;
         }
 
         private void LoadLocations()
@@ -141,8 +144,6 @@ namespace Kaeshi.Entity
             locations["elevators"].final = true;
         }
 
-        //locations["root"].AddItem("Token", new Item("Token", "Round token of some kind"));
-
         public virtual Location GetCurrentLocation()
         {
             return current;
@@ -162,7 +163,7 @@ namespace Kaeshi.Entity
                 Console.Write("Path is blocked...");
             }
 
-            return current.final;
+            return current.final && currentLevel == maxLevel;
         }
     }
 }
