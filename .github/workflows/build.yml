@@ -2,7 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ master ]
+    branches:
+    - main
+    - uplift
   pull_request:
     branches: [ master ]
 
