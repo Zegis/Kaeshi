@@ -6,5 +6,7 @@ namespace Kaeshi.Interfaces
     {
         Location GetCurrentLocation();
         bool Go(Direction direction);
+
+        void Advance();
     }
 }
