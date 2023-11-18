@@ -59,6 +59,8 @@ namespace Kaeshi.Modules
                     return new EquipCommand(entityManager.GetHero(), equippableItem);
                 case "unequip":
                     return new UnequipCommand(entityManager.GetHero(), (EquippableType)Enum.Parse(typeof(EquippableType),rawTarget,true));
+                case "advance":
+                    return new AdvanceCommand(entityManager.GetMap());
                 case "exit": return new ExitCommand();
                 default: return new NotFoundCommand();
             }
