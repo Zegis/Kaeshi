@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - main
-    - uplift
   pull_request:
     branches: [ master ]
 
