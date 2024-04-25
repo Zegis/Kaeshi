@@ -5,14 +5,13 @@ Meeting Room - M
 Office - F
 Stairs - S
 
-    E
-    |
+      E
+      |
   T1-O1-O2-M
       |  |
   O5-O4-O3-T2
   |   |
   S   F
-
 
   E:
   Token
