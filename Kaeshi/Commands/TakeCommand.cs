@@ -16,6 +16,9 @@ namespace Kaeshi.Commands
 
         public GameState Execute()
         {
+            if(item == null)
+                return GameState.Play;
+
             backpack.PutInBackpack(item);
             return GameState.Play;
         }

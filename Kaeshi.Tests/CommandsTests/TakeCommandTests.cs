@@ -9,7 +9,7 @@ namespace Kaeshi.Tests.CommandsTests
     public class TakeCommandTests
     {
         [Test]
-        public void LookCommandReturnsPlay()
+        public void TakeCommandReturnsPlay()
         {
             var expected = GameState.Play;
 
@@ -22,7 +22,7 @@ namespace Kaeshi.Tests.CommandsTests
         }
 
         [Test]
-        public void LookCommandAddsToBackpack()
+        public void TakeCommandAddsToBackpack()
         {
             Mock<IBackpack> backpack = new Mock<IBackpack>();
             var item = new Item("test", "description");
@@ -30,6 +30,16 @@ namespace Kaeshi.Tests.CommandsTests
             command.Execute();
 
             backpack.Verify(x => x.PutInBackpack(item), Times.Once);
+        }
+
+        [Test]
+        public void TakeCommandCantAddNullToBackpack()
+        {
+            Mock<IBackpack> backpack = new Mock<IBackpack>();
+            var command = new TakeCommand(backpack.Object, null);
+            command.Execute();
+
+            backpack.Verify(x => x.PutInBackpack(null), Times.Never);
         }
     }
 }
