@@ -1,5 +1,7 @@
 .NET Core minimalistic console text adventure.
 
+Sonarcloud analysis: https://sonarcloud.io/project/overview?id=Zegis_Kaeshi
+
 Current map is proof of work for implemented mechanics:
 - Moving around
 - Fighting with monsters
