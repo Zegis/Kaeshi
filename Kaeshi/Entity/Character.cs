@@ -210,5 +210,15 @@ namespace Kaeshi.Entity
             return Backpack;
 
         }
+
+        public bool ItemInBackpack(string itemName)
+        {
+            if(string.IsNullOrEmpty(itemName))
+            {
+                return false;
+            }
+
+            return Backpack.Any(x => x.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace Kaeshi.Interfaces
         UsableItem GetUsableItem(string itemName);
 
         EquippableItem GetEquippableItem(string itemName);
+
+        bool ItemInBackpack(string itemName);
     }
 }

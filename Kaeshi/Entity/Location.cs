@@ -10,7 +10,7 @@ namespace Kaeshi.Entity
     {
         public bool visited { get; set; }
 
-        public bool final { get; set; }
+        public bool final { get; private set; }
 
         private readonly string primaryDescription;
 
@@ -22,6 +22,8 @@ namespace Kaeshi.Entity
 
         private readonly Dictionary<Direction, Location> linkedLoctions;
 
+        public string key { get; private set; }
+
         public Location(string firstDescription, string secondDescription)
         {
             linkedLoctions = new Dictionary<Direction, Location>();
@@ -31,6 +33,7 @@ namespace Kaeshi.Entity
             secondaryDescription = secondDescription;
             visited = false;
             final = false;
+            key = string.Empty;
         }
 
         internal IVisible ObserveItem(string itemKey)
@@ -96,6 +99,12 @@ namespace Kaeshi.Entity
         {
             linkedLoctions.TryGetValue(direction, out var retVal);
             return retVal;
+        }
+
+        public void SetFinalLocation(string KeyNeeded)
+        {
+            final = true;
+            key = KeyNeeded;
         }
     }
 }

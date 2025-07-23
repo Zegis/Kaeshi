@@ -146,7 +146,7 @@ namespace Kaeshi.Entity
                 locations["corridor_4"].AddItem("Token", new Item("Token", "Round token of some kind"));
 
                 locations["elevators"].SetLink(Direction.North, locations["corridor_4"]);
-                locations["elevators"].final = true;
+                locations["elevators"].SetFinalLocation("token");
             }
             else if(level == 2) {
                 locations = new Dictionary<string, Location>()
@@ -159,7 +159,7 @@ namespace Kaeshi.Entity
                     {"exit", new Location("This is exit", "exit") }
                 };
                 locations["entry"].SetLink(Direction.South, locations["exit"]);
-                locations["exit"].final = true;
+                locations["exit"].SetFinalLocation(string.Empty);
             }
 
             current = locations["entry"];
