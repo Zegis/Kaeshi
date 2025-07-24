@@ -156,5 +156,13 @@ namespace Kaeshi.Tests
             var command = parser.Parse("unequip Armor");
             Assert.AreEqual(expected, command.GetType());
         }
+
+        [Test]
+        public void AdvanceIsValidCommand()
+        {
+            var expected = typeof(AdvanceCommand);
+            var command = parser.Parse("advance");
+            Assert.AreEqual(expected, command.GetType());
+        }
     }
 }
